@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ikyu Portfolio
+
+Personal portfolio for data engineering projects, built with Next.js, Tailwind CSS v4, MDX, and Mermaid.
+
+## What this project is
+
+This site is meant to showcase data engineering and analytics work in a clean portfolio format:
+
+- a homepage that lists featured projects
+- tag-based filtering for faster browsing
+- detailed case study pages written in MDX
+- Mermaid diagram support for architecture and workflow visuals
+
+The current direction is a dark, modern portfolio inspired by the Gerold template style.
+
+## Tech Stack
+
+- Next.js 16 App Router
+- React 19
+- Tailwind CSS v4
+- MDX via `next-mdx-remote`
+- Mermaid for diagrams
+- `gray-matter` for frontmatter parsing
+
+## Content Structure
+
+Project content is split into two layers:
+
+- `content/projects.json` for project summaries used on the homepage
+- `content/projects/*.mdx` for full case studies
+
+The data loader in `src/lib/projects.ts` connects both layers.
+
+## Current Features
+
+- homepage project grid
+- tag filtering
+- project cards with images and metadata
+- dynamic project detail pages
+- static generation for project routes
+- MDX rendering
+- Mermaid component support
+
+## Current Status
+
+The core content pipeline is already working.
+
+Done:
+
+- content loading from JSON and MDX
+- homepage project listing
+- filterable project grid
+- case study routing
+- Mermaid support inside MDX
+- dark/light mode toggle
+
+Next:
+
+- skills marquee
+- resume and timeline section
+- scroll animations
+- typography and visual polish
+
+## Key Files
+
+- `src/app/page.tsx` - homepage
+- `src/app/projects/[slug]/page.tsx` - project detail pages
+- `src/components/ProjectGrid.tsx` - project card grid and tag filter
+- `src/components/Mermaid.tsx` - Mermaid renderer
+- `src/lib/projects.ts` - project data access
+- `content/projects.json` - project summaries
+- `content/projects/*.mdx` - case studies
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Notes
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The project currently has one populated case study: `construction-contract-tracker`
+- The README now reflects the actual portfolio direction instead of the default Next.js starter text

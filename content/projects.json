@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "construction-contract-tracker",
+    "title": "Construction Contract Lifecycle Monitor",
+    "category": "Data Engineering & Analytics",
+    "summary": "An automated ETL pipeline and dashboard tracking construction contract phases from generation to full payment.",
+    "tags": ["Python", "Pandas", "Google Sheets API", "Looker Studio", "EDA"],
+    "featured": true,
+    "hasCaseStudy": true,
+    "image": "/image/projects/project-python-to-google-studio.jpg"
+  }
+]
