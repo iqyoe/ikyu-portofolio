@@ -1,0 +1,47 @@
+# AI-context documentation configuration
+project_name: 'ikyu-portofolio'
+project_type: 'web-app'
+size_category: 'small'
+docs_directory: 'docs/'
+last_updated: '2026-09-20'
+
+# Budget settings
+token_budget: 'medium'
+example_policy: 'short'
+priority_focus: 'all'
+focus_interpretation: 'Short was interpreted as concise coverage of architecture, implementation, and operations.'
+
+# Priority paths
+priority_paths:
+  - 'src/app/'
+  - 'src/components/'
+  - 'src/lib/'
+  - 'content/'
+  - 'package.json'
+
+exclude_paths:
+  - 'node_modules/'
+  - '.next/'
+  - 'build/'
+  - 'out/'
+  - 'public/image/'
+
+# Update settings
+delta_since: 'main'
+max_files_per_pass: 100
+max_tokens_per_doc: 2000
+
+# Facts
+facts:
+  - 'The package identifies the project as ikyu-portofolio and exposes dev, build, start, and lint scripts (verified at package.json:2-10).'
+  - 'The application uses Next.js 16.3.4, React 19.2.8, Tailwind CSS, MDX, Mermaid, and gray-matter (verified at package.json:11-31).'
+
+# Assumptions
+assumptions:
+  - 'The repository is maintained as a small project for documentation workflow purposes; no stored inventory classification was found in provided files.'
+  - 'The delta reference main is a maintenance default and has not been verified against the local git configuration (not found in provided files).'
+
+# Decisions
+decisions:
+  - 'Keep documentation in docs/ for tool-agnostic agent discovery (decision from the task request).'
+  - 'Use short examples and a medium documentation budget (decision from the task request).'
