@@ -1,35 +1,30 @@
 # Ikyu Portfolio Agent Documentation
 
-This folder is the concise source of truth for agents working on the portfolio. It uses the requested medium budget and short-example policy. Examples are kept to commands and file references so the documents stay easy to scan.
+This directory is the concise source of truth for agents working on the portfolio.
 
 ## Navigation
 
-- [Configuration](./config.yml) - documentation scope, budget, priorities, and update settings.
-- [Architecture overview](./architecture-overview.md) - application flow, rendering boundaries, and styling model.
-- [Data models](./data-models.md) - project metadata, case-study content, and content loading behavior.
-- [Components](./components.md) - page and component responsibilities.
-- [Development workflow](./development-workflow.md) - local commands and change workflow.
-- [Deployment guide](./deployment-guide.md) - verified production commands and deployment unknowns.
-- [Known issues](./known-issues.md) - evidence-backed inconsistencies and risks.
-- [Roadmap](./roadmap.md) - maintenance priorities and deferred work.
-- [Journal](./journal.md) - audit trail for documentation updates.
-- [Validation report](./validation-report.md) - checks run for this documentation pass.
+- [Configuration](./config.yml) — documentation scope and update settings.
+- [Architecture overview](./architecture-overview.md) — application flow, route groups, rendering, and styling.
+- [Data models](./data-models.md) — Iqbal metadata, MDX, and loading behavior.
+- [Components](./components.md) — route and component responsibilities.
+- [Development workflow](./development-workflow.md) — local commands and change workflow.
+- [Deployment guide](./deployment-guide.md) — verified production commands and unknowns.
+- [Known issues](./known-issues.md) — evidence-backed risks and placeholders.
+- [Roadmap](./roadmap.md) — maintenance priorities.
+- [Journal](./journal.md) — documentation update history.
+- [Validation report](./validation-report.md) — checks run for the current source state.
 
-## Facts
+## Verified facts
 
-- The project is a personal portfolio for data engineering and analytics work, implemented with Next.js, Tailwind CSS, MDX, and Mermaid (verified at `README.md:1-3` and `README.md:27-34`).
-- The root page is a portfolio hub linking to Iqbal Lukman, Ikyu Racer, and Nadya Racer (verified at `src/app/page.tsx`).
-- The Iqbal portfolio loads project metadata and renders the project grid, skills marquee, and resume timeline (verified at `src/app/(documentation)/iqbal-lukman/page.tsx`).
-- The Iqbal content pipeline uses `content/iqbal-lukman/projects.json` for summaries and `content/iqbal-lukman/projects/*.mdx` for case studies (verified at `src/lib/projects.ts`).
-- The documentation directory is `docs/`, as requested for shared agent use (verified by this file path).
+- The root route is a portfolio hub linking to Iqbal Lukman, Ikyu Racer, and Nadya Racer.
+- The Iqbal route group owns project summaries, case studies, the project grid, skills marquee, and timeline.
+- Racer route groups share `RacerPortfolio` while supplying identity, imagery, and accent theme.
+- Iqbal content is loaded from `content/iqbal-lukman/`.
+- The application uses Next.js 16, React 19, Tailwind CSS v4, MDX, Mermaid, and `gray-matter`.
 
-## Assumptions
+## Documentation rules
 
-- The repository inventory used for this pass is not stored as a generated inventory file; exact file-count and line-count claims are therefore omitted from this source of truth (not found in provided files).
-- `Focus: Short` means concise coverage across architecture, implementation, and operations because the supplied focus choices did not include `Short` (inferred from the task request, not verified in repository files).
-
-## Decisions
-
-- Use `docs/` instead of `cursor-docs/` so any agent can discover the documentation without tool-specific naming (decision from the task request).
-- Use link-only references and small command examples by default, matching the requested short-example policy (decision from the task request).
-- Treat source files as authoritative when the README conflicts with implementation (decision based on source paths cited throughout this folder).
+- Treat source files as authoritative when prose and implementation differ.
+- Mark hosting, CI, tests, external integrations, and unverified portfolio content as unknown or placeholder.
+- Update this index and the relevant document when routes, content contracts, commands, or known risks change.
