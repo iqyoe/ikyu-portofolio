@@ -18,8 +18,9 @@ This folder is the concise source of truth for agents working on the portfolio. 
 ## Facts
 
 - The project is a personal portfolio for data engineering and analytics work, implemented with Next.js, Tailwind CSS, MDX, and Mermaid (verified at `README.md:1-3` and `README.md:27-34`).
-- The homepage loads project metadata and renders the project grid, skills marquee, and resume timeline (verified at `src/app/page.tsx:1-38`).
-- The content pipeline uses `content/projects.json` for summaries and `content/projects/*.mdx` for case studies (verified at `README.md:36-43`).
+- The root page is a portfolio hub linking to Iqbal Lukman, Ikyu Racer, and Nadya Racer (verified at `src/app/page.tsx`).
+- The Iqbal portfolio loads project metadata and renders the project grid, skills marquee, and resume timeline (verified at `src/app/(documentation)/iqbal-lukman/page.tsx`).
+- The Iqbal content pipeline uses `content/iqbal-lukman/projects.json` for summaries and `content/iqbal-lukman/projects/*.mdx` for case studies (verified at `src/lib/projects.ts`).
 - The documentation directory is `docs/`, as requested for shared agent use (verified by this file path).
 
 ## Assumptions

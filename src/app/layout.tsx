@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeProvider from "@/components/theme-provider";
-import SiteHeader from "@/components/SiteHeader";
 
 export const metadata: Metadata = {
   title: {
-    default: "Ikyu Portfolio",
-    template: "%s | Ikyu Portfolio",
+    default: "Portfolio Hub",
+    template: "%s | Portfolio Hub",
   },
-  description: "A personal portfolio for data engineering projects, case studies, and analytics work.",
+  description: "A hub for Iqbal Lukman, Ikyu Racer, and Nadya Racer portfolios.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -20,10 +19,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body suppressHydrationWarning className="min-h-full bg-background font-sans text-foreground">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <div className="min-h-screen">
-            <SiteHeader />
-            {children}
-          </div>
+          <div className="min-h-screen">{children}</div>
         </ThemeProvider>
       </body>
     </html>

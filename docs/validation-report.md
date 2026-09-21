@@ -19,7 +19,7 @@ This report validates the `docs/` deliverables created for the requested medium 
 ## Repository checks
 
 - `npm.cmd run lint`: passed on 2026-09-20 with exit code 0 (verified by the validation command run for this pass).
-- `npm.cmd run build`: passed on 2026-09-20 with exit code 0; Next compiled successfully, TypeScript completed, and static pages were generated for `/`, `/_not-found`, and `/projects/construction-contract-tracker` (verified by the validation command run for this pass).
+- `npm.cmd run build`: passed on 2026-09-20 with exit code 0; Next compiled successfully, TypeScript completed, and static pages were generated for `/`, `/iqbal-lukman`, `/iqbal-lukman/projects/construction-contract-tracker`, `/ikyu-racer`, and `/nadya-racer` (verified by the validation command run for this pass).
 
 ## Facts
 

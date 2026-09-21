@@ -16,8 +16,8 @@ These commands are repository facts; the required hosting platform, environment 
 ## Runtime inputs
 
 - The application reads content from the repository-relative `content/` directory using `process.cwd()` (verified at `src/lib/projects.ts:1-5`).
-- Project images are referenced with a public path from JSON and are rendered with `next/image` (verified at `content/projects.json:7-10` and `src/components/ProjectGrid.tsx:46-54`).
-- The case-study example mentions Google service-account credentials in sample content, but no credential file or integration code is present in the repository paths reviewed (verified at `content/projects/construction-contract-tracker.mdx:60-63`; not found in provided files).
+- Project images are referenced with a public path from the Iqbal JSON and are rendered with `next/image` (verified at `content/iqbal-lukman/projects.json` and `src/components/ProjectGrid.tsx`).
+- The case-study example mentions Google service-account credentials in sample content, but no credential file or integration code is present in the repository paths reviewed.
 
 ## Security notes
 
