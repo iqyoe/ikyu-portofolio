@@ -55,7 +55,7 @@ export default function MachineryCarousel({ theme = 'orange' }: { theme?: 'orang
         <div className="flex h-full w-full transition-transform duration-500 ease-in-out" style={{ transform: `translate3d(-${activeIndex * 100}%, 0, 0)` }}>
           {machinery.map((item) => (
             <div key={item.name} className="relative flex h-full min-w-full shrink-0 basis-full flex-col items-center justify-center px-2">
-              <div className="absolute left-1/2 top-1/2 aspect-square w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-black dark:bg-white" aria-hidden="true" />
+              <div className="absolute left-1/2 top-1/2 aspect-square w-[60%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-black dark:bg-white" aria-hidden="true" />
               <Image src={item.image} alt={item.name} width={1100} height={687} sizes="(min-width: 640px) 38vw, 84vw" className="relative z-10 block h-auto w-full object-contain" />
               <div className="absolute bottom-1 left-0 right-0 z-20 text-center">
                 <p className="text-sm font-bold text-slate-900 drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)] dark:text-white dark:drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">{item.name}</p>
