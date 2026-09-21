@@ -1,9 +1,14 @@
 const skills = [
   'data engineering',
-  'data analysis',
-  'web application',
-  'data visualization',
-  'IoT',
+  'Apache Airflow',
+  'Google Cloud Platform',
+  'AWS',
+  'Apache Spark',
+  'BigQuery',
+  'Python',
+  'Power BI',
+  'Tableau',
+  'dbt',
 ];
 
 export default function SkillsMarquee() {

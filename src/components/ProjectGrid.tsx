@@ -81,7 +81,7 @@ export default function ProjectGrid({ projects }: ProjectGridProps) {
               {project.hasCaseStudy && (
                 <div className="mt-6 pt-5 border-t border-gray-100 dark:border-gray-800">
                   <Link
-                    href={`/projects/${project.slug}`}
+                    href={`/iqbal-lukman/projects/${project.slug}`}
                     className="inline-flex items-center text-sm font-semibold text-blue-600 hover:underline dark:text-blue-400"
                   >
                     Read Case Study &rarr;

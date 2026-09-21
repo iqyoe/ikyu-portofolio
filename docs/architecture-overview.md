@@ -6,18 +6,18 @@ The application is a small Next.js App Router site for presenting data engineeri
 
 ## Request and content flow
 
-1. `src/app/layout.tsx` defines global metadata, loads global CSS, wraps the tree in `next-themes`, and renders `SiteHeader` around page content (verified at `src/app/layout.tsx:1-30`).
-2. `src/app/page.tsx` calls `getAllProjects()` and renders the introduction, skills marquee, timeline, and `ProjectGrid` (verified at `src/app/page.tsx:1-38`).
-3. `src/lib/projects.ts` reads `content/projects.json` from the process working directory and parses it into project metadata (verified at `src/lib/projects.ts:5-35`).
-4. `ProjectGrid` derives the available tags, keeps the selected tag in client state, filters projects, and links case-study cards to `/projects/[slug]` (verified at `src/components/ProjectGrid.tsx:1-20` and `src/components/ProjectGrid.tsx:81-88`).
-5. The dynamic project page obtains a slug, loads the matching case study, renders the metadata, and passes MDX content to `MDXRemote` (verified at `src/app/projects/[slug]/page.tsx:43-82`).
-6. Mermaid code blocks are converted to the `Mermaid` client component, which renders SVG after mount (verified at `src/app/projects/[slug]/page.tsx:15-33` and `src/components/Mermaid.tsx:17-43`).
+1. `src/app/layout.tsx` defines global metadata, loads global CSS, and wraps the tree in `next-themes` (verified at `src/app/layout.tsx`).
+2. `src/app/page.tsx` renders the portfolio hub and links to the three experiences (verified at `src/app/page.tsx`).
+3. The Iqbal route group renders the documentation portfolio, using `SkillsMarquee`, `Timeline`, and `ProjectGrid` (verified at `src/app/(documentation)/iqbal-lukman/page.tsx`).
+4. `src/lib/projects.ts` reads `content/iqbal-lukman/projects.json` and matching MDX files (verified at `src/lib/projects.ts`).
+5. Iqbal case studies live at `/iqbal-lukman/projects/[slug]` and render through `MDXRemote` with Mermaid support (verified at `src/app/(documentation)/iqbal-lukman/projects/[slug]/page.tsx`).
+6. The Ikyu Racer and Nadya Racer routes are independent one-page experiences with separate nested layouts (verified at `src/app/(racer)/`).
 
 ## Rendering boundaries
 
-- The home page and project detail page do not declare `'use client'` and call filesystem-backed loaders, so their data access is implemented in server-side modules (verified at `src/app/page.tsx:1-8`, `src/app/projects/[slug]/page.tsx:1-5`, and `src/lib/projects.ts:1-5`).
+- The hub and portfolio pages are Server Components; client boundaries remain limited to interactive theme, filtering, and Mermaid components.
 - `ProjectGrid`, `ThemeToggle`, `theme-provider`, and `Mermaid` are client components (verified at their respective `'use client'` directives).
-- Project routes are enumerated by `generateStaticParams()` from the JSON project list (verified at `src/app/projects/[slug]/page.tsx:36-41`).
+- Iqbal project routes are enumerated by `generateStaticParams()` from the Iqbal JSON project list.
 
 ## Styling and theme model
 
@@ -28,7 +28,7 @@ The application is a small Next.js App Router site for presenting data engineeri
 ## Facts
 
 - The architecture has a filesystem content boundary rather than a database or API boundary (verified at `src/lib/projects.ts:5-45`).
-- The only documented project flow is raw CSV to Pandas to Google Sheets API to Looker Studio, as represented in the case study content (verified at `content/projects/construction-contract-tracker.mdx:31-42`).
+- The only documented project flow is raw CSV to Pandas to Google Sheets API to Looker Studio, as represented in the Iqbal case study content.
 
 ## Assumptions
 

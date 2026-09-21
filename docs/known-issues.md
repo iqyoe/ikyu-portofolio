@@ -3,14 +3,14 @@
 ## Evidence-backed issues
 
 1. **No runtime schema validation.** `getAllProjects()` parses JSON directly, and no validation library or validation function is present in the loader (verified at `src/lib/projects.ts:29-36`; validation implementation not found in provided files).
-2. **Static route discovery depends on JSON metadata.** `generateStaticParams()` maps only the projects returned from `getAllProjects()`, so an MDX file not represented in `content/projects.json` is not included in the generated parameter list (verified at `src/app/projects/[slug]/page.tsx:36-40` and `src/lib/projects.ts:29-35`).
+2. **Static route discovery depends on JSON metadata.** `generateStaticParams()` maps only the projects returned from `getAllProjects()`, so an MDX file not represented in `content/iqbal-lukman/projects.json` is not included in the generated parameter list.
 3. **Mermaid uses a permissive security setting.** The component sets `securityLevel: 'loose'` and assigns rendered SVG through `innerHTML` (verified at `src/components/Mermaid.tsx:6-11` and `src/components/Mermaid.tsx:20-33`).
 4. **The case-study sample contains external pipeline code rather than repository code.** The MDX describes Python, `gspread`, a CSV path, and a service-account file, but those implementation files are not present in the reviewed repository paths (verified at `content/projects/construction-contract-tracker.mdx:40-63`; corresponding source files not found in provided files).
 
 ## Facts
 
 - The project has no test script in `package.json` (verified at `package.json:5-10`).
-- The current content dataset contains one project record and one populated MDX case study (verified at `content/projects.json:1-11` and `README.md:100-103`).
+- The current Iqbal content dataset contains one project record and one populated MDX case study.
 - `next.config.ts` currently contains no custom options (verified at `next.config.ts:1-7`).
 
 ## Assumptions

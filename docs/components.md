@@ -2,9 +2,11 @@
 
 | Area | Path | Responsibility |
 | --- | --- | --- |
-| Root layout | `src/app/layout.tsx` | Metadata, global CSS, theme provider, and shared header (verified at `src/app/layout.tsx:6-29`). |
-| Home route | `src/app/page.tsx` | Loads project summaries and composes the portfolio sections (verified at `src/app/page.tsx:6-40`). |
-| Detail route | `src/app/projects/[slug]/page.tsx` | Generates project params, resolves a slug, and renders MDX case studies (verified at `src/app/projects/[slug]/page.tsx:36-85`). |
+| Root layout | `src/app/layout.tsx` | Metadata, global CSS, and theme provider. |
+| Portfolio hub | `src/app/page.tsx` | Links visitors to the three portfolio experiences. |
+| Iqbal portfolio | `src/app/(documentation)/iqbal-lukman/page.tsx` | Composes Iqbal's skills, timeline, and documented projects. |
+| Iqbal detail route | `src/app/(documentation)/iqbal-lukman/projects/[slug]/page.tsx` | Generates project params, resolves a slug, and renders MDX case studies. |
+| Racer pages | `src/app/(racer)/ikyu-racer/page.tsx`, `src/app/(racer)/nadya-racer/page.tsx` | Independent one-page portfolio experiences. |
 | Project grid | `src/components/ProjectGrid.tsx` | Client-side tag filtering, project cards, images, and case-study links (verified at `src/components/ProjectGrid.tsx:1-97`). |
 | Header | `src/components/SiteHeader.tsx` | Home link and theme toggle shell (verified at `src/components/SiteHeader.tsx:1-14`). |
 | Theme toggle | `src/components/ThemeToggle.tsx` | Switches between light and dark themes after client mount (verified at `src/components/ThemeToggle.tsx:23-43`). |
@@ -15,7 +17,7 @@
 
 ## Composition
 
-The home route composes `SkillsMarquee`, `Timeline`, and `ProjectGrid`; the root layout composes `SiteHeader`; the project detail route composes `Mermaid` through the MDX component map (verified at `src/app/page.tsx:1-4`, `src/app/layout.tsx:1-4`, and `src/app/projects/[slug]/page.tsx:15-25`).
+The Iqbal route composes `SkillsMarquee`, `Timeline`, and `ProjectGrid`; each portfolio layout composes a configurable `SiteHeader`; the project detail route composes `Mermaid` through the MDX component map.
 
 ## Facts
 

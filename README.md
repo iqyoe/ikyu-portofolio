@@ -1,6 +1,6 @@
 # Ikyu Portfolio
 
-Personal portfolio for data engineering projects, built with Next.js, Tailwind CSS v4, MDX, and Mermaid.
+Portfolio hub for Iqbal Lukman, Ikyu Racer, and Nadya Racer, built with Next.js, Tailwind CSS v4, MDX, and Mermaid.
 
 ## AI and agent onboarding
 
@@ -15,7 +15,13 @@ The `docs/` folder is the shared, tool-agnostic source of truth for architecture
 
 ## What this project is
 
-This site is meant to showcase data engineering and analytics work in a clean portfolio format:
+This site is a hub for three separate portfolio experiences:
+
+- a landing page that links to each identity
+- an Iqbal Lukman portfolio for data engineering and analytics work
+- Ikyu Racer and Nadya Racer one-page portfolios
+
+The Iqbal portfolio includes:
 
 - a homepage that lists featured projects
 - tag-based filtering for faster browsing
@@ -35,10 +41,10 @@ The current direction is a dark, modern portfolio inspired by the Gerold templat
 
 ## Content Structure
 
-Project content is split into two layers:
+Iqbal project content is split into two layers:
 
-- `content/projects.json` for project summaries used on the homepage
-- `content/projects/*.mdx` for full case studies
+- `content/iqbal-lukman/projects.json` for project summaries
+- `content/iqbal-lukman/projects/*.mdx` for full case studies
 
 The data loader in `src/lib/projects.ts` connects both layers.
 
@@ -59,7 +65,11 @@ The core content pipeline is already working.
 Done:
 
 - content loading from JSON and MDX
-- homepage project listing
+- portfolio hub at `/`
+- Iqbal portfolio at `/iqbal-lukman`
+- Ikyu Racer at `/ikyu-racer`
+- Nadya Racer at `/nadya-racer`
+- homepage project listing within the Iqbal portfolio
 - filterable project grid
 - case study routing
 - Mermaid support inside MDX
@@ -74,13 +84,14 @@ Next:
 
 ## Key Files
 
-- `src/app/page.tsx` - homepage
-- `src/app/projects/[slug]/page.tsx` - project detail pages
+- `src/app/page.tsx` - portfolio hub
+- `src/app/(documentation)/iqbal-lukman/page.tsx` - Iqbal portfolio
+- `src/app/(documentation)/iqbal-lukman/projects/[slug]/page.tsx` - project detail pages
 - `src/components/ProjectGrid.tsx` - project card grid and tag filter
 - `src/components/Mermaid.tsx` - Mermaid renderer
 - `src/lib/projects.ts` - project data access
-- `content/projects.json` - project summaries
-- `content/projects/*.mdx` - case studies
+- `content/iqbal-lukman/projects.json` - project summaries
+- `content/iqbal-lukman/projects/*.mdx` - case studies
 
 ## Getting Started
 
