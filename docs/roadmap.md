@@ -12,6 +12,7 @@
 ## Visual and content maintenance
 
 - Continue scroll-animation, typography, and responsive-layout polish.
+- Review the bento layout at narrow breakpoints and add motion only where it improves hierarchy.
 - Keep route-group headers and redirect behavior synchronized when navigation changes.
 - Add each Iqbal project summary and matching MDX file with the same slug.
 - Keep public image paths valid and distinguish draft content from verified claims.

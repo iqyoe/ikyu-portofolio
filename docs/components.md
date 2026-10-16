@@ -7,16 +7,17 @@
 | Iqbal layout/page | `src/app/(documentation)/iqbal-lukman/` | Header, introduction, skills, timeline, and project grid. |
 | Iqbal detail route | `src/app/(documentation)/iqbal-lukman/projects/[slug]/page.tsx` | Static params, slug resolution, and MDX rendering. |
 | Racer routes | `src/app/(racer)/ikyu-racer/`, `src/app/(racer)/nadya-racer/` | Identity-specific layouts and shared one-page portfolio. |
-| Header | `src/components/SiteHeader.tsx` | Home link, optional navigation, tone, and theme toggle. |
+| Header | `src/components/SiteHeader.tsx` | Home link, optional navigation, and tone. |
 | Project grid | `src/components/ProjectGrid.tsx` | Tag filtering, cards, images, and case-study links. |
+| Tech stack matrix | `src/components/TechStackMatrix.tsx` | Category-filtered technology pills for the Iqbal bento page. |
 | Racer portfolio | `src/components/RacerPortfolio.tsx` | Shared racer hero, stats, profile, results, media, technical, partner, and contact sections. |
 | Racer carousels | `src/components/DriverProfileCarousel.tsx`, `src/components/MachineryCarousel.tsx` | Racer profile and machinery visuals. |
-| Theme components | `src/components/theme-provider.tsx`, `ThemeToggle.tsx` | Theme context and toggle control. |
+| Theme provider | `src/components/theme-provider.tsx` | Forces the dark theme across the site. |
 | Content visuals | `src/components/SkillsMarquee.tsx`, `Timeline.tsx`, `Mermaid.tsx` | Skills, timeline, and MDX diagram rendering. |
 
 ## Composition
 
-The root layout provides theme context. Each route group supplies its own header layout. The Iqbal page composes skills, timeline, and projects; racer pages pass identity and theme props to `RacerPortfolio`; the detail route maps Mermaid code blocks to `Mermaid`.
+The root layout provides theme context. Each route group supplies its own header layout. The Iqbal page composes the bento hero, metrics, `TechStackMatrix`, timeline, education/contact cards, and `ProjectGrid`; racer pages pass identity and theme props to `RacerPortfolio`; the detail route maps Mermaid code blocks to `Mermaid`.
 
 ## Content ownership
 

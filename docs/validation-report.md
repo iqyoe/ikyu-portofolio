@@ -15,6 +15,8 @@ This pass updates `README.md` and every existing file in `docs/` to reflect the 
 
 ## Repository checks
 
+The Iqbal portfolio layout now includes the bento hero, interactive technology filters, connected experience timeline, asymmetric project cards, and education/contact panels.
+
 Checks should be run after documentation changes when the local dependencies are available:
 
 ```text

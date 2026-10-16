@@ -47,8 +47,9 @@ Iqbal project content is split into two layers:
 - project cards with images and metadata
 - statically generated Iqbal case-study routes
 - MDX rendering with Mermaid support
-- light/dark theme toggle
+- dark theme presentation
 - racer portfolio layouts with profile, results, media, technical, partner, and contact sections
+- bento-style Iqbal portfolio with interactive technology filters and asymmetric project cards
 - legacy `/projects/:slug` redirect to `/iqbal-lukman/projects/:slug`
 
 ## Current status
@@ -62,7 +63,7 @@ Done:
 - JSON and MDX content loading
 - project filtering and case-study routing
 - Mermaid support inside MDX
-- dark/light mode toggle
+- dark-only visual theme
 - racer profile and machinery carousel components
 
 Next:
