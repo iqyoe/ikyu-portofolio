@@ -9,8 +9,8 @@ const portfolios = [
     title: 'Iqbal Lukman',
     description: 'Data engineering, analytics, and detailed project case studies.',
     action: 'Explore portfolio',
-    image: '/image/profile-racer-male.png',
-    imageAlt: 'Profile portrait for Iqbal Lukman',
+    image: '/image/iqbal-lukman-profile.png',
+    imageAlt: 'Portrait of Muhammad Iqbal Lukman wearing glasses and a dark blazer',
     className: 'border-blue-200 bg-blue-50/80 hover:border-blue-400 dark:border-blue-900/70 dark:bg-blue-950/30',
   },
   {
@@ -38,17 +38,17 @@ const portfolios = [
 export default function HomePage() {
   return (
     <>
-      <SiteHeader label="Portfolio Hub" homeHref="/" />
+      <SiteHeader label="Sojitoy Team" homeHref="/" />
       <main className="mx-auto max-w-6xl px-6 py-20">
         <section className="max-w-3xl">
           <p className="text-sm font-medium uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
-            A collection of identities
+            Brand Identities
           </p>
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
-            Choose a portfolio.
+          <h1 className="font-display mt-5 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+            Sojitoy Team
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            Explore project documentation, technical work, and two distinct racing-focused portfolios.
+            Explore our team members’ portfolios and find the right expertise for your next challenge.
           </p>
         </section>
 
@@ -73,7 +73,7 @@ export default function HomePage() {
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                 {portfolio.eyebrow}
               </p>
-              <h2 className="mt-8 text-2xl font-bold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+              <h2 className="font-display mt-8 text-2xl font-bold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
                 {portfolio.title}
               </h2>
               <p className="mt-4 min-h-20 text-sm leading-6 text-gray-600 dark:text-gray-300">

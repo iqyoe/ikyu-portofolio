@@ -1,10 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  color-scheme: light;
+  --background: #0b0f17;
+  --foreground: #eef2ff;
+  --palette-peach: #fff1e7;
+  --palette-blue: #b5d2e6;
+  --palette-deep-blue: #326080;
+  --palette-brown: #805232;
+  --bs-body-color: #eef2ff;
+  --bs-secondary: #94a3b8;
+  color-scheme: dark;
 }
 
 .dark {
@@ -17,6 +24,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+  --font-display: "Abril Fatface", Georgia, serif;
   --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
 }
 
@@ -24,6 +32,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+.font-display {
+  letter-spacing: 0.1em;
 }
 
 @keyframes marquee {

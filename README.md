@@ -4,33 +4,25 @@ Portfolio hub for Iqbal Lukman, Ikyu Racer, and Nadya Racer, built with Next.js,
 
 ## AI and agent onboarding
 
-If you are an AI assistant or agent working in this repository, start here:
-
-1. Read [`AGENTS.md`](./AGENTS.md) for repository instructions and the recommended walkthrough.
+1. Read [`AGENTS.md`](./AGENTS.md) for repository instructions.
 2. Read [`docs/INDEX.md`](./docs/INDEX.md) for the documentation map.
-3. Open the relevant documents in [`docs/`](./docs/) before changing routes, components, content, or deployment configuration.
-4. Use the cited source paths in the docs to verify current behavior before making assumptions.
+3. Read the relevant documents in [`docs/`](./docs/) before changing routes, components, content, or deployment configuration.
+4. Verify documented behavior against the source paths before making assumptions.
 
-The `docs/` folder is the shared, tool-agnostic source of truth for architecture, data contracts, components, workflow, deployment, known issues, and maintenance decisions.
+The `docs/` folder is the shared source of truth for architecture, data contracts, components, workflow, deployment, risks, and maintenance decisions.
 
 ## What this project is
 
-This site is a hub for three separate portfolio experiences:
+The site is a hub for three portfolio experiences:
 
-- a landing page that links to each identity
-- an Iqbal Lukman portfolio for data engineering and analytics work
-- Ikyu Racer and Nadya Racer one-page portfolios
+- `/` — portfolio hub
+- `/iqbal-lukman` — data engineering and analytics portfolio with MDX case studies
+- `/ikyu-racer` — Ikyu Racer one-page portfolio
+- `/nadya-racer` — Nadya Racer one-page portfolio
 
-The Iqbal portfolio includes:
+The current visual direction is dark, modern, and inspired by the Gerold template style.
 
-- a homepage that lists featured projects
-- tag-based filtering for faster browsing
-- detailed case study pages written in MDX
-- Mermaid diagram support for architecture and workflow visuals
-
-The current direction is a dark, modern portfolio inspired by the Gerold template style.
-
-## Tech Stack
+## Tech stack
 
 - Next.js 16 App Router
 - React 19
@@ -39,76 +31,79 @@ The current direction is a dark, modern portfolio inspired by the Gerold templat
 - Mermaid for diagrams
 - `gray-matter` for frontmatter parsing
 
-## Content Structure
+## Content structure
 
 Iqbal project content is split into two layers:
 
-- `content/iqbal-lukman/projects.json` for project summaries
-- `content/iqbal-lukman/projects/*.mdx` for full case studies
+- `content/iqbal-lukman/projects.json` — project summaries
+- `content/iqbal-lukman/projects/*.mdx` — full case studies
 
-The data loader in `src/lib/projects.ts` connects both layers.
+`src/lib/projects.ts` connects the two layers by slug. Racer pages currently use component-local content and public image assets.
 
-## Current Features
+## Current features
 
-- homepage project grid
-- tag filtering
+- portfolio hub with links to all three experiences
+- Iqbal project grid with tag filtering
 - project cards with images and metadata
-- dynamic project detail pages
-- static generation for project routes
-- MDX rendering
-- Mermaid component support
+- statically generated Iqbal case-study routes
+- MDX rendering with Mermaid support
+- dark theme presentation
+- racer portfolio layouts with profile, results, media, technical, partner, and contact sections
+- bento-style Iqbal portfolio with interactive technology filters and asymmetric project cards
+- legacy `/projects/:slug` redirect to `/iqbal-lukman/projects/:slug`
 
-## Current Status
-
-The core content pipeline is already working.
+## Current status
 
 Done:
 
-- content loading from JSON and MDX
 - portfolio hub at `/`
 - Iqbal portfolio at `/iqbal-lukman`
 - Ikyu Racer at `/ikyu-racer`
 - Nadya Racer at `/nadya-racer`
-- homepage project listing within the Iqbal portfolio
-- filterable project grid
-- case study routing
+- JSON and MDX content loading
+- project filtering and case-study routing
 - Mermaid support inside MDX
-- dark/light mode toggle
+- dark-only visual theme
+- racer profile and machinery carousel components
 
 Next:
 
-- scroll animations
-- typography and visual polish
-- content validation for project metadata
-- deployment provider and CI documentation
+- replace placeholder racer results and media with verified content
+- add content validation for project metadata
+- decide whether `featured` should affect ordering or filtering
+- document a deployment provider and CI workflow when selected
+- continue scroll-animation and typography polish
 
-## Key Files
+## Key files
 
-- `src/app/page.tsx` - portfolio hub
-- `src/app/(documentation)/iqbal-lukman/page.tsx` - Iqbal portfolio
-- `src/app/(documentation)/iqbal-lukman/projects/[slug]/page.tsx` - project detail pages
-- `src/components/ProjectGrid.tsx` - project card grid and tag filter
-- `src/components/Mermaid.tsx` - Mermaid renderer
-- `src/lib/projects.ts` - project data access
-- `content/iqbal-lukman/projects.json` - project summaries
-- `content/iqbal-lukman/projects/*.mdx` - case studies
+- `src/app/page.tsx` — portfolio hub
+- `src/app/(documentation)/iqbal-lukman/page.tsx` — Iqbal portfolio
+- `src/app/(documentation)/iqbal-lukman/projects/[slug]/page.tsx` — Iqbal case studies
+- `src/app/(racer)/ikyu-racer/page.tsx` — Ikyu Racer route
+- `src/app/(racer)/nadya-racer/page.tsx` — Nadya Racer route
+- `src/components/ProjectGrid.tsx` — project grid and tag filter
+- `src/components/RacerPortfolio.tsx` — shared racer page
+- `src/components/Mermaid.tsx` — Mermaid renderer
+- `src/lib/projects.ts` — Iqbal content loader
+- `content/iqbal-lukman/projects.json` — project summaries
 
-## Getting Started
-
-Install dependencies and start the dev server:
+## Getting started
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then open:
+Open `http://localhost:3000`.
+
+Validation commands:
 
 ```bash
-http://localhost:3000
+npm run lint
+npm run build
 ```
 
 ## Notes
 
-- The project currently has one populated case study: `construction-contract-tracker`
-- The README now reflects the actual portfolio direction instead of the default Next.js starter text
+- The repository currently contains one populated Iqbal case study: `construction-contract-tracker`.
+- Racer sections include clearly marked placeholders where official results, media, telemetry, or sponsorship materials are not yet available.
