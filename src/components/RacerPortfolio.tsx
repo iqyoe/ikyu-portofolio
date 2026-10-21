@@ -12,20 +12,20 @@ interface RacerPortfolioProps {
 
 const themeStyles = {
   orange: {
-    accent: 'text-orange-500',
-    accentDark: 'text-orange-300',
-    soft: 'bg-orange-100/70 dark:bg-orange-950/40',
-    border: 'border-orange-200 dark:border-orange-900',
-    button: 'bg-orange-500 hover:bg-orange-600',
-    line: 'bg-orange-500',
+    accent: 'text-emerald-300',
+    accentDark: 'text-emerald-300',
+    soft: 'bg-emerald-400/10',
+    border: 'border-emerald-400/50',
+    button: 'bg-emerald-400 text-slate-950 hover:bg-pink-500 hover:text-white',
+    line: 'bg-emerald-400',
   },
   fuchsia: {
-    accent: 'text-fuchsia-500',
-    accentDark: 'text-fuchsia-300',
-    soft: 'bg-fuchsia-100/70 dark:bg-fuchsia-950/40',
-    border: 'border-fuchsia-200 dark:border-fuchsia-900',
-    button: 'bg-fuchsia-500 hover:bg-fuchsia-600',
-    line: 'bg-fuchsia-500',
+    accent: 'text-blue-400',
+    accentDark: 'text-blue-300',
+    soft: 'bg-blue-500/10',
+    border: 'border-blue-400/50',
+    button: 'bg-blue-500 text-white hover:bg-pink-500',
+    line: 'bg-blue-500',
   },
 } as const;
 
@@ -41,7 +41,7 @@ export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPo
   const styles = themeStyles[theme];
 
   return (
-    <main className="overflow-hidden bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-white">
+    <main className="overflow-hidden bg-[#0D0D0D] text-white">
       <section className="mx-auto grid min-h-[calc(100vh-73px)] max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[30%_70%] lg:gap-0">
         <div className="flex justify-center lg:pr-10">
           <div className="relative w-full max-w-[20rem]">
@@ -55,12 +55,12 @@ export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPo
           <h1 className="mt-6 max-w-4xl text-6xl font-black uppercase leading-[0.9] tracking-tight sm:text-8xl">
             {name}<br /><span className={styles.accent}>Race with intent.</span>
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-300">
             Amateur Karting &amp; Sprint Race Driver. Precision in the apex. Speed in the data.
           </p>
           <div className="mt-10 flex flex-wrap gap-4 text-sm font-semibold">
             <a href="#contact" className={`rounded-full px-6 py-3 text-white transition ${styles.button}`}>Get in touch</a>
-            <a href="#profile" className="rounded-full border border-slate-300 px-6 py-3 transition hover:border-slate-500 dark:border-slate-700">Explore the story</a>
+            <a href="#profile" className="rounded-full border border-slate-700 px-6 py-3 transition hover:border-pink-500">Explore the story</a>
           </div>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPo
         </div>
       </section>
 
-      <section className="bg-white px-6 py-24 dark:bg-slate-900/60">
+      <section className="bg-slate-900/60 px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <SectionIntro eyebrow="02 / Track record" title="Progress you can measure." />
           <div className="mt-12 overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800">
@@ -129,7 +129,7 @@ export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPo
         <div className={`mt-8 rounded-2xl border p-8 ${styles.border} ${styles.soft}`}><p className={`text-xs font-semibold uppercase tracking-[0.25em] ${styles.accent}`}>Sponsorship deck</p><p className="mt-3 text-lg font-semibold">Formal sponsorship proposal coming soon.</p><p className="mt-2 text-sm text-slate-600 dark:text-slate-300">A downloadable deck can be linked here when the campaign package is ready.</p></div>
       </section>
 
-      <section id="contact" className="bg-slate-950 px-6 py-24 text-white dark:bg-black">
+      <section id="contact" className="bg-[#0D0D0D] px-6 py-24 text-white">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div><SectionIntro eyebrow="06 / Contact" title="Let’s talk about the next lap." light /><p className="mt-6 text-slate-300">For sponsorships, engineering conversations, race invitations, and collaborations, use the inquiry form.</p></div>
           <form className="grid gap-4 sm:grid-cols-2" action="#contact"><input aria-label="Name" name="name" placeholder="Name" className="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-white sm:col-span-1" /><input aria-label="Company or sponsor" name="company" placeholder="Company / Sponsor" className="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-white sm:col-span-1" /><input aria-label="Email" type="email" name="email" placeholder="Email" className="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-white sm:col-span-2" /><textarea aria-label="Message" name="message" placeholder="Message" rows={5} className="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-white sm:col-span-2" /><button type="submit" className={`rounded-full px-6 py-3 text-sm font-semibold text-white transition sm:col-span-2 sm:justify-self-start ${styles.button}`}>Send inquiry</button></form>

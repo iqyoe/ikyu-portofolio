@@ -1,6 +1,7 @@
 import { getProjectBySlug, getAllProjects } from '@/lib/projects';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Mermaid from '@/components/Mermaid';
 
@@ -32,6 +33,19 @@ export default async function ProjectDetailPage({ params }: PageProps<'/iqbal-lu
       <Link className="mb-8 inline-flex text-sm text-blue-600 hover:underline dark:text-blue-400" href="/iqbal-lukman">
         &larr; Back to Iqbal&apos;s portfolio
       </Link>
+
+      {project.meta.image && (
+        <div className="relative mb-10 aspect-[16/9] overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-gray-900">
+          <Image
+            src={project.meta.image}
+            alt={`${project.meta.title} project overview`}
+            fill
+            sizes="(min-width: 1024px) 896px, 100vw"
+            className="object-cover"
+            priority
+          />
+        </div>
+      )}
 
       <header className="mb-10 border-b border-gray-200 pb-8 dark:border-gray-800">
         <span className="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">

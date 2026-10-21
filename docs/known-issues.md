@@ -11,7 +11,7 @@
 
 ## Current facts
 
-- There is one populated Iqbal case study: `construction-contract-tracker`.
+- The Iqbal portfolio includes separate PwC case studies for enhanced audit analytics and data infrastructure modernization.
 - `featured` exists in the project JSON but is not part of the loader interface or filtering behavior.
 - `next.config.ts` redirects legacy `/projects/:slug` URLs to `/iqbal-lukman/projects/:slug`.
 

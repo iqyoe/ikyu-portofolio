@@ -8,6 +8,7 @@ This directory is the concise source of truth for agents working on the portfoli
 - [Architecture overview](./architecture-overview.md) — application flow, route groups, rendering, and styling.
 - [Data models](./data-models.md) — Iqbal metadata, MDX, and loading behavior.
 - [Components](./components.md) — route and component responsibilities.
+- [Timeline project case-study guide](./timeline-project-case-study-guide.md) — reusable workflow for documenting timeline projects.
 - [Development workflow](./development-workflow.md) — local commands and change workflow.
 - [Deployment guide](./deployment-guide.md) — verified production commands and unknowns.
 - [Known issues](./known-issues.md) — evidence-backed risks and placeholders.

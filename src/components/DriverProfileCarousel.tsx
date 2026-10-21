@@ -11,14 +11,14 @@ interface DriverProfileCarouselProps {
 
 const themeStyles = {
   orange: {
-    accent: 'text-orange-500',
-    border: 'border-orange-200 dark:border-orange-900',
-    dot: 'bg-orange-500',
+    accent: 'text-emerald-300',
+    border: 'border-emerald-400/50',
+    dot: 'bg-emerald-400',
   },
   fuchsia: {
-    accent: 'text-fuchsia-500',
-    border: 'border-fuchsia-200 dark:border-fuchsia-900',
-    dot: 'bg-fuchsia-500',
+    accent: 'text-blue-400',
+    border: 'border-blue-400/50',
+    dot: 'bg-blue-500',
   },
 } as const;
 
@@ -74,7 +74,7 @@ export default function DriverProfileCarousel({ theme }: DriverProfileCarouselPr
                 ) : (
                   <div key={card.title} className={`flex h-[22rem] flex-col rounded-2xl border p-6 ${styles.border}`}>
                     <p className={`text-xs font-bold uppercase tracking-wider ${styles.accent}`}>{card.title}</p>
-                    <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">{card.value}</p>
+                    <p className="mt-4 text-base leading-7 text-slate-300">{card.value}</p>
                   </div>
                 )
               ))}
@@ -84,11 +84,11 @@ export default function DriverProfileCarousel({ theme }: DriverProfileCarouselPr
       </div>
 
       <div className="mt-6 flex items-center justify-center gap-3" aria-label="Driver profile slides">
-        <button type="button" onClick={() => move(-1)} aria-label="Previous driver profile slide" className="rounded-full border border-slate-300 px-3 py-1 text-sm text-slate-600 hover:border-slate-500 dark:border-slate-700 dark:text-slate-300">←</button>
+        <button type="button" onClick={() => move(-1)} aria-label="Previous driver profile slide" className="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300 hover:border-pink-500">←</button>
         {slides.map((_, index) => (
           <button key={index} type="button" onClick={() => setActiveSlide(index)} aria-label={`Show driver profile slide ${index + 1}`} aria-current={activeSlide === index} className={`h-2 rounded-full transition-all ${activeSlide === index ? `w-7 ${styles.dot}` : 'w-2 bg-slate-300 dark:bg-slate-700'}`} />
         ))}
-        <button type="button" onClick={() => move(1)} aria-label="Next driver profile slide" className="rounded-full border border-slate-300 px-3 py-1 text-sm text-slate-600 hover:border-slate-500 dark:border-slate-700 dark:text-slate-300">→</button>
+        <button type="button" onClick={() => move(1)} aria-label="Next driver profile slide" className="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300 hover:border-pink-500">→</button>
       </div>
     </div>
   );

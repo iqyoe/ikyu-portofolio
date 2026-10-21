@@ -11,7 +11,7 @@ const portfolios = [
     action: 'Explore portfolio',
     image: '/image/iqbal-lukman-profile.png',
     imageAlt: 'Portrait of Muhammad Iqbal Lukman wearing glasses and a dark blazer',
-    className: 'border-blue-200 bg-blue-50/80 hover:border-blue-400 dark:border-blue-900/70 dark:bg-blue-950/30',
+    className: 'border-blue-400/50 bg-blue-500/10 hover:border-pink-500 dark:border-blue-900/70 dark:bg-blue-950/30',
   },
   {
     href: '/ikyu-racer',
@@ -21,7 +21,7 @@ const portfolios = [
     action: 'Visit Ikyu Racer',
     image: '/image/profile-racer-male.png',
     imageAlt: 'Male racer wearing a racing helmet',
-    className: 'border-orange-200 bg-orange-50/80 hover:border-orange-400 dark:border-orange-900/70 dark:bg-orange-950/30',
+    className: 'border-emerald-400/50 bg-emerald-400/10 hover:border-pink-500 dark:border-emerald-900/70 dark:bg-emerald-950/30',
   },
   {
     href: '/nadya-racer',
@@ -31,7 +31,7 @@ const portfolios = [
     action: 'Visit Nadya Racer',
     image: '/image/profile-racer-femal.png',
     imageAlt: 'Female racer wearing a racing helmet',
-    className: 'border-fuchsia-200 bg-fuchsia-50/80 hover:border-fuchsia-400 dark:border-fuchsia-900/70 dark:bg-fuchsia-950/30',
+    className: 'border-pink-500/50 bg-pink-500/10 hover:border-pink-500 dark:border-pink-900/70 dark:bg-pink-950/30',
   },
 ];
 
@@ -41,13 +41,13 @@ export default function HomePage() {
       <SiteHeader label="Sojitoy Team" homeHref="/" />
       <main className="mx-auto max-w-6xl px-6 py-20">
         <section className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-emerald-300">
             Brand Identities
           </p>
-          <h1 className="font-display mt-5 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+          <h1 className="font-display mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
             Sojitoy Team
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+          <p className="mt-6 text-lg leading-8 text-slate-300">
             Explore our team members’ portfolios and find the right expertise for your next challenge.
           </p>
         </section>
@@ -60,7 +60,7 @@ export default function HomePage() {
               className={`group relative mt-14 flex min-h-[22rem] flex-col items-center rounded-3xl border px-7 pb-8 pt-24 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:text-white ${portfolio.className}`}
             >
               <div className="absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 -translate-y-1/2" aria-hidden="true">
-                <div className="absolute inset-0 rounded-full bg-white shadow-lg shadow-slate-900/10 ring-1 ring-slate-200 dark:bg-slate-100 dark:ring-slate-300" />
+                <div className="absolute inset-0 rounded-full bg-slate-900 shadow-lg shadow-blue-950/30 ring-1 ring-blue-400/50" />
                 <Image
                   src={portfolio.image}
                   alt={portfolio.imageAlt}
@@ -70,16 +70,16 @@ export default function HomePage() {
                   className="absolute bottom-0 left-1/2 z-10 h-auto w-full max-w-none -translate-x-1/2"
                 />
               </div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
                 {portfolio.eyebrow}
               </p>
-              <h2 className="font-display mt-8 text-2xl font-bold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+              <h2 className="font-display mt-8 text-2xl font-bold text-white transition-colors group-hover:text-pink-500">
                 {portfolio.title}
               </h2>
-              <p className="mt-4 min-h-20 text-sm leading-6 text-gray-600 dark:text-gray-300">
+              <p className="mt-4 min-h-20 text-sm leading-6 text-slate-300">
                 {portfolio.description}
               </p>
-              <span className="mt-8 inline-flex text-sm font-semibold text-blue-600 dark:text-blue-400">
+              <span className="mt-8 inline-flex text-sm font-semibold text-blue-400">
                 {portfolio.action} <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
               </span>
             </Link>
