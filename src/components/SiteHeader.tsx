@@ -17,16 +17,16 @@ export default function SiteHeader({
 
   return (
     <header className={isRacer
-      ? 'border-b border-slate-200/80 bg-slate-50/85 backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/85'
-      : 'border-b border-gray-200/80 bg-white/90 backdrop-blur dark:border-gray-800/80 dark:bg-gray-950/80'}>
+      ? 'border-b border-slate-800/80 bg-slate-950/85 backdrop-blur'
+      : 'border-b border-slate-800/80 bg-slate-950/90 backdrop-blur'}>
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
-        <Link href={homeHref} className="font-display text-sm font-semibold tracking-wide text-gray-900 dark:text-white">
+        <Link href={homeHref} className="font-display text-sm font-semibold tracking-wide text-white">
           {label}
         </Link>
         <div>
-          <nav className="hidden items-center gap-5 text-sm text-gray-600 dark:text-gray-300 sm:flex" aria-label="Primary navigation">
+          <nav className="hidden items-center gap-5 text-sm text-slate-300 sm:flex" aria-label="Primary navigation">
             {links.map((link) => (
-              <Link key={link.href} href={link.href} className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+              <Link key={link.href} href={link.href} className="transition-colors hover:text-pink-500">
                 {link.label}
               </Link>
             ))}

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import type { ReactNode } from 'react';
 import { getAllProjects } from '@/lib/projects';
 import ProjectGrid from '@/components/ProjectGrid';
 import TechStackMatrix from '@/components/TechStackMatrix';
@@ -16,7 +17,7 @@ export default function IqbalLukmanPage() {
   return (
     <main className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:py-14">
       <section className="grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
-        <div className="relative min-h-[34rem] overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 p-7 text-white shadow-xl shadow-blue-950/10 sm:min-h-[32rem] sm:p-10">
+        <div className="relative min-h-[34rem] overflow-hidden rounded-3xl border border-blue-400/30 bg-[#0D0D0D] p-7 text-white shadow-xl shadow-blue-950/10 sm:min-h-[32rem] sm:p-10">
           <div className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl" aria-hidden="true" />
           <div className="absolute -bottom-10 right-[-2rem] h-72 w-72 rounded-full bg-blue-500/10 ring-1 ring-blue-400/20 sm:h-96 sm:w-96" aria-hidden="true" />
           <Image
@@ -38,8 +39,8 @@ export default function IqbalLukmanPage() {
         </div>
 
         <aside className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
-          <div className="rounded-3xl border border-[#b5d2e6] bg-[#b5d2e6]/45 p-6 dark:border-blue-900/70 dark:bg-blue-950/30"><p className="text-xs font-bold uppercase tracking-[0.25em] text-[#326080] dark:text-blue-300">Quick highlights</p><div className="mt-6 grid grid-cols-2 gap-3"><Metric value="6+" label="Years in data" /><Metric value="3" label="Core domains" /><Metric value="2" label="Cloud platforms" /><Metric value="1" label="Case study" /></div></div>
-          <div className="rounded-3xl border border-[#fff1e7] bg-[#fff1e7] p-6 dark:border-amber-900/70 dark:bg-amber-950/30"><p className="text-xs font-bold uppercase tracking-[0.25em] text-[#805232] dark:text-amber-300">Primary focus</p><ul className="mt-5 space-y-4 text-sm font-semibold text-slate-800 dark:text-slate-200"><li className="flex gap-3"><span className="text-[#805232]">⚡</span>Data platform &amp; infrastructure</li><li className="flex gap-3"><span className="text-[#805232]">◈</span>Analytics-ready datamarts</li><li className="flex gap-3"><span className="text-[#805232]">✦</span>AI-assisted operations</li></ul></div>
+          <div className="rounded-3xl border border-blue-400/40 bg-blue-500/10 p-6"><p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-300">Quick highlights</p><div className="mt-6 grid grid-cols-2 gap-3"><Metric value="6+" label="Years in data" /><Metric value="3" label="Core domains" /><Metric value="2" label="Cloud platforms" /><Metric value="1" label="Case study" /></div></div>
+          <div className="rounded-3xl border border-emerald-400/40 bg-emerald-400/10 p-6"><p className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-300">Primary focus</p><ul className="mt-5 space-y-4 text-sm font-semibold text-white"><li className="flex gap-3"><span className="text-emerald-300">⚡</span>Data platform &amp; infrastructure</li><li className="flex gap-3"><span className="text-emerald-300">◈</span>Analytics-ready datamarts</li><li className="flex gap-3"><span className="text-emerald-300">✦</span>AI-assisted operations</li></ul></div>
         </aside>
       </section>
 
@@ -51,10 +52,10 @@ export default function IqbalLukmanPage() {
         <ProjectGrid projects={projects} />
       </section>
 
-      <section id="contact" className="mt-6 grid gap-5 scroll-mt-24 lg:grid-cols-[0.8fr_1.2fr]"><div className="rounded-3xl border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-900/70"><p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-600 dark:text-blue-400">05 / Education</p><h2 className="mt-3 text-2xl font-black text-slate-950 dark:text-white">Foundations matter.</h2><div className="mt-7 space-y-5 text-sm"><InfoRow icon="🎓" title="President University" detail="Bachelor of Science in Information Technology · 2015–2019" /><InfoRow icon="🌐" title="EF SET English Certificate" detail="Advanced / CEFR C1 · Score 68/100" /><InfoRow icon="✦" title="Workshop speaker" detail="MIT App Inventor workshop · 2016" /></div></div><div className="rounded-3xl border border-slate-800 bg-slate-950 p-7 text-white sm:p-9"><p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-300">06 / Contact &amp; connect</p><h2 className="mt-4 max-w-xl text-3xl font-black tracking-tight sm:text-5xl">Have a data problem worth solving?</h2><p className="mt-5 max-w-xl leading-7 text-slate-300">For now, explore the documented work above. A direct contact link can be added when the preferred professional channel is confirmed.</p><Link href="#projects" className="mt-8 inline-flex rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-blue-100">Start with the case study ↗</Link></div></section>
+      <section id="contact" className="mt-6 grid gap-5 scroll-mt-24 lg:grid-cols-[0.8fr_1.2fr]"><div className="rounded-3xl border border-slate-200 bg-white p-7 dark:border-slate-800 dark:bg-slate-900/70"><p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-600 dark:text-blue-400">05 / Education</p><h2 className="mt-3 text-2xl font-black text-slate-950 dark:text-white">Foundations matter.</h2><div className="mt-7 space-y-5 text-sm"><InfoRow icon="🎓" title="President University" detail="Bachelor of Science in Information Technology · 2015–2019" /><InfoRow icon="🌐" title="EF SET English Certificate" detail="Advanced / CEFR C1 · Score 68/100" /><InfoRow icon="✦" title="Pemberi Materi Workshop &quot;MIT Appinventor&quot; Compsphere 2016" detail={<a href="https://www.liputan6.com/citizen6/read/2655681/president-university-kenalkan-industri-digital-pada-siswa-sma" target="_blank" rel="noreferrer" className="text-blue-600 underline decoration-blue-300 underline-offset-4 transition hover:text-blue-500 dark:text-blue-400 dark:decoration-blue-700 dark:hover:text-blue-300">View publication ↗</a>} /></div></div><div className="rounded-3xl border border-slate-800 bg-slate-950 p-7 text-white sm:p-9"><p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-300">06 / Contact &amp; connect</p><h2 className="mt-4 max-w-xl text-3xl font-black tracking-tight sm:text-5xl">Have a data problem worth solving?</h2><p className="mt-5 max-w-xl leading-7 text-slate-300">For now, explore the documented work above. A direct contact link can be added when the preferred professional channel is confirmed.</p><Link href="#projects" className="mt-8 inline-flex rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-blue-100">Start with the case study ↗</Link></div></section>
     </main>
   );
 }
 
 function Metric({ value, label }: { value: string; label: string }) { return <div className="rounded-2xl border border-blue-200/80 bg-white/70 p-4 dark:border-blue-900/50 dark:bg-slate-900/40"><p className="text-2xl font-black text-slate-950 dark:text-white">{value}</p><p className="mt-1 text-xs font-medium leading-4 text-slate-500 dark:text-slate-400">{label}</p></div>; }
-function InfoRow({ icon, title, detail }: { icon: string; title: string; detail: string }) { return <div className="flex gap-3"><span className="text-xl" aria-hidden="true">{icon}</span><div><p className="font-bold text-slate-900 dark:text-white">{title}</p><p className="mt-1 leading-5 text-slate-500 dark:text-slate-400">{detail}</p></div></div>; }
+function InfoRow({ icon, title, detail }: { icon: string; title: string; detail: ReactNode }) { return <div className="flex gap-3"><span className="text-xl" aria-hidden="true">{icon}</span><div><p className="font-bold text-slate-900 dark:text-white">{title}</p><p className="mt-1 leading-5 text-slate-500 dark:text-slate-400">{detail}</p></div></div>; }

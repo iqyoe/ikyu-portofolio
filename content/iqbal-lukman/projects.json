@@ -1,5 +1,86 @@
 [
   {
+    "slug": "grab-lending-payment-data-monitoring",
+    "title": "Lending and Payment Data Monitoring",
+    "category": "Data Engineering & Data Quality",
+    "summary": "Maintained lending and payment pipelines across GCP and AWS with Airflow, Spark, and Hive, including sensors for ingestion validation and datamart integrity.",
+    "tags": ["Airflow", "Spark", "Hive", "GCP / AWS", "Data Quality"],
+    "featured": true,
+    "hasCaseStudy": true
+  },
+  {
+    "slug": "grab-pipeline-assistant-ai",
+    "title": "Pipeline Assistant and AI RCA Solution",
+    "category": "AI-Assisted Data Engineering",
+    "summary": "Prepared pipeline data and launched LLM-assisted solutions that generated root-cause analysis summaries for data engineering investigations.",
+    "tags": ["Python", "Pandas", "LLM", "Claude", "Gemini", "OpenAI"],
+    "featured": false,
+    "hasCaseStudy": true
+  },
+  {
+    "slug": "grab-lending-pipeline-optimization",
+    "title": "Lending Pipeline Optimization and Enhancement",
+    "category": "Data Engineering & Performance",
+    "summary": "Migrated Lending pipeline workloads from Presto to a customized Spark resource in Airflow and standardized SOT datamart logic to restore downstream reporting schedules.",
+    "tags": ["Presto", "Spark", "Airflow", "SOT Datamart", "Pipeline Optimization"],
+    "featured": false,
+    "hasCaseStudy": true
+  },
+  {
+    "slug": "grab-regulatory-compliance",
+    "title": "Regulatory Compliance Monitoring",
+    "category": "Regulatory Data Analytics",
+    "summary": "Assessed and modeled government-collaboration data in BigQuery and Presto to support audit reporting, internal monitoring, and fraud detection.",
+    "tags": ["BigQuery", "GCP", "Presto", "Data Quality", "Audit"],
+    "featured": false,
+    "hasCaseStudy": true
+  },
+  {
+    "slug": "grab-lending-sot-insights",
+    "title": "Lending SOT and Insights",
+    "category": "Lending Data Analytics",
+    "summary": "Built a single source of truth datamart for the ID Lending lifecycle, then rebuilt it in Spark SQL to support downstream reports and KPI monitoring.",
+    "tags": ["BigQuery", "Airflow", "Spark SQL", "SOT Datamart", "Lending"],
+    "featured": false,
+    "hasCaseStudy": true
+  },
+  {
+    "slug": "grab-customer-service-insight",
+    "title": "Customer Service Insight",
+    "category": "Customer Service Analytics",
+    "summary": "Built a BigQuery and Airflow datamart connecting customer service tickets with payment and product features, with Tableau and Power BI monitoring dashboards.",
+    "tags": ["BigQuery", "Airflow", "Tableau", "Power BI", "CSAT", "CPT"],
+    "featured": false,
+    "hasCaseStudy": true
+  },
+  {
+    "slug": "ovo-regulatory-compliance",
+    "title": "Regulatory Compliance Monitoring",
+    "category": "Regulatory Data Analytics",
+    "summary": "Assessed and modeled financial-services data in BigQuery to support government-collaboration compliance monitoring, with Tableau insights for detecting fraud and anomalous transactions.",
+    "tags": ["BigQuery", "GCP", "Data Quality", "Data Modeling", "Tableau"],
+    "featured": false,
+    "hasCaseStudy": true
+  },
+  {
+    "slug": "ovo-user-experience-data-insight",
+    "title": "User Experience Data Insight",
+    "category": "Product Analytics & User Insights",
+    "summary": "Developed a high-volume BigQuery SQL datamart and Tableau views of transaction behavior to support segmentation, tailored offerings, and feature impact tracking.",
+    "tags": ["BigQuery SQL", "Datamart", "User Segmentation", "Tableau"],
+    "featured": false,
+    "hasCaseStudy": true
+  },
+  {
+    "slug": "ovo-funnel-data-insight",
+    "title": "Funnel Data Insight",
+    "category": "Product Analytics & Experimentation",
+    "summary": "Centralized tracker logs in a data lake with BigQuery SQL, dbt, and Airflow to support A/B testing, post-launch feature evaluation, and Tableau funnel analysis.",
+    "tags": ["BigQuery SQL", "dbt", "Airflow", "Data Lake", "Tableau"],
+    "featured": false,
+    "hasCaseStudy": true
+  },
+  {
     "slug": "construction-contract-tracker",
     "title": "Construction Contract Lifecycle Monitor",
     "category": "Data Engineering & Analytics",
@@ -8,5 +89,43 @@
     "featured": true,
     "hasCaseStudy": true,
     "image": "/image/projects/project-python-to-google-studio.jpg"
+  },
+  {
+    "slug": "consumer-behavior-dashboard",
+    "title": "Consumer Behavior Intelligence Dashboard",
+    "category": "Analytics & Product Insights",
+    "summary": "A Python-based web dashboard for exploring consumer behavior and identifying opportunities for product and user-experience improvements.",
+    "tags": ["Python", "Analytics", "Web dashboard", "UX"],
+    "featured": false,
+    "hasCaseStudy": true,
+    "image": "/image/projects/consumer-behavior-intelligence-dashboard.jpg"
+  },
+  {
+    "slug": "mattel-oee-iiot-monitoring",
+    "title": "Mattel Manufacturing OEE and IIoT Monitoring",
+    "category": "Industrial Analytics & Engineering",
+    "summary": "An IIoT and SCADA monitoring foundation that collected machine signals, supported OEE analysis, and connected factory-floor visibility with a web application for broader operational review.",
+    "tags": ["OEE", "SCADA", "IIoT", "CodeIgniter", "SQL"],
+    "featured": false,
+    "hasCaseStudy": true,
+    "image": "/image/projects/mattel-oee-iiot-monitoring-overview.jpg"
+  },
+  {
+    "slug": "pwc-enhanced-audit-data-analytics",
+    "title": "Enhanced Audit Using Data Analytics",
+    "category": "Audit Analytics & Data Engineering",
+    "summary": "Unified financial data from banking, insurance, travel, and oil and gas clients to support audit-compliant analysis, advanced metrics, and new audit-point discovery.",
+    "tags": ["MySQL", "MS Access", "ACL", "Power BI", "Python", "Django"],
+    "featured": false,
+    "hasCaseStudy": true
+  },
+  {
+    "slug": "pwc-data-infrastructure-bi-modernization",
+    "title": "Data Infrastructure Modernization & Business Intelligence",
+    "category": "Data Infrastructure & Business Intelligence",
+    "summary": "Modernized a travel agency's legacy SQL Server infrastructure by centralizing manual files, automating SSIS pipelines, and delivering Power BI reporting for multiple stakeholder groups.",
+    "tags": ["SQL Server 2019", "SSIS", "Excel", "Power BI", "Data Modeling"],
+    "featured": false,
+    "hasCaseStudy": true
   }
 ]

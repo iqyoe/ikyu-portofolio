@@ -13,7 +13,7 @@
 | Racer portfolio | `src/components/RacerPortfolio.tsx` | Shared racer hero, stats, profile, results, media, technical, partner, and contact sections. |
 | Racer carousels | `src/components/DriverProfileCarousel.tsx`, `src/components/MachineryCarousel.tsx` | Racer profile and machinery visuals. |
 | Theme provider | `src/components/theme-provider.tsx` | Forces the dark theme across the site. |
-| Content visuals | `src/components/SkillsMarquee.tsx`, `Timeline.tsx`, `Mermaid.tsx` | Skills, timeline, and MDX diagram rendering. |
+| Content visuals | `src/components/SkillsMarquee.tsx`, `Timeline.tsx`, `Mermaid.tsx` | Skills, timeline, and interactive MDX diagram rendering. Mermaid diagrams preserve a readable natural size and support zoom, reset, mouse-wheel zoom, drag-to-pan, and an expanded view. |
 
 ## Composition
 

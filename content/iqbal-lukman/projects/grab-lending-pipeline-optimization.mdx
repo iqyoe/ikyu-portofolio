@@ -1,0 +1,57 @@
+---
+title: "Lending Pipeline Optimization and Enhancement"
+date: "2023-10-01"
+author: "Muhammad Iqbal Lukman"
+category: "Data Engineering & Performance"
+---
+
+## Project overview
+
+As a Data Engineer at Grab, I worked on the Lending pipeline when source issues and processing delays affected the completion of its workflows. The work focused on improving performance and manageability while keeping the Single Source of Truth (SOT) datamart logic consistent.
+
+I migrated the Lending workload from Presto to a customized Spark resource within Airflow, standardized logic across SOT datamarts, and helped restore downstream report schedules.
+
+## The problem
+
+Source issues and delays in the Lending pipeline affected the timely completion of the SOT datamart. When the datamart was delayed, downstream reports could not run on their expected schedule.
+
+The pipeline needed a processing approach that was more manageable for the workload, together with standardized logic so that the SOT datamarts remained consistent.
+
+## My contribution
+
+- Investigated source issues and delays affecting the Lending pipeline.
+- Migrated Lending processing from Presto to a customized Spark resource.
+- Integrated the Spark resource within Airflow.
+- Standardized logic across SOT datamarts.
+- Restored timely completion of the SOT datamart and downstream report schedules.
+
+## Solution
+
+```mermaid
+graph LR
+    A[Lending source data] --> B[Airflow workflow]
+    B --> C[Customized Spark resource]
+    C --> D[Standardized SOT datamart logic]
+    D --> E[Completed Lending SOT datamart]
+    E --> F[Downstream report schedules]
+```
+
+The main deliverable was the enhanced Lending pipeline. Moving the workload from Presto to a customized Spark resource addressed processing performance and manageability, while standardized SOT logic supported consistent downstream reporting.
+
+## Technical implementation
+
+- **Orchestration:** Airflow.
+- **Previous processing:** Presto.
+- **New processing:** Customized Spark resource.
+- **Data model:** Single Source of Truth (SOT) datamarts.
+- **Enhancement:** Standardized logic across SOT datamarts.
+
+## Outcome and lessons learned
+
+The Lending SOT datamart returned to timely completion, allowing downstream report schedules to resume. The work also made the pipeline more manageable by aligning its processing resource and datamart logic with the workload.
+
+No numerical impact is claimed because the available project details do not include validated measures for runtime, cost, or throughput improvement.
+
+## Reflection
+
+Pipeline performance problems often have both technical and data-model dimensions. Improving the processing resource helped, but standardizing the SOT logic was also necessary to make the downstream result dependable.

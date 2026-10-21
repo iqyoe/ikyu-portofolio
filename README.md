@@ -105,5 +105,5 @@ npm run build
 
 ## Notes
 
-- The repository currently contains one populated Iqbal case study: `construction-contract-tracker`.
+- The repository contains populated Iqbal case studies for construction contract tracking, consumer behavior, Mattel manufacturing, and two PwC projects.
 - Racer sections include clearly marked placeholders where official results, media, telemetry, or sponsorship materials are not yet available.
