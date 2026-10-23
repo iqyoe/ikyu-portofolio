@@ -14,11 +14,13 @@ The development server is available at `http://localhost:3000`. There is no test
 ## Change workflow
 
 1. Inspect the relevant route, component, content, and documentation files.
-2. For an Iqbal project, keep the JSON summary and MDX slug aligned.
+2. For an Iqbal project, keep the JSON summary and MDX slug aligned; use a new highest `projectNumber` when you want a stable project ID and first position.
 3. For racer changes, keep identity-specific route metadata and shared component props aligned.
-4. Run lint and build after source, route, content-loading, MDX, or configuration changes.
-5. Review the affected routes and both theme modes when practical.
-6. Update the relevant document in `docs/` when behavior or contracts change.
+4. For resume changes, update `content/iqbal-lukman/resume.json` or optional MDX `resume` frontmatter rather than duplicating content in components.
+5. Run `npm run validate:resume` after content or resume-loader changes.
+6. Run lint and build after source, route, content-loading, MDX, or configuration changes.
+7. Review the affected routes and both theme modes when practical, and inspect the generated PDF when the resume renderer changes.
+8. Update the relevant document in `docs/` when behavior or contracts change.
 
 ## Configuration facts
 

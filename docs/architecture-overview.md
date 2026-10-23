@@ -12,6 +12,7 @@ This is a small Next.js App Router site with three portfolio experiences. The st
 4. `src/lib/projects.ts` reads `content/iqbal-lukman/projects.json` and matching MDX files.
 5. Iqbal case studies render at `/iqbal-lukman/projects/[slug]` through `MDXRemote` and the Mermaid component.
 6. The `(racer)` route group renders Ikyu and Nadya pages through the shared `RacerPortfolio` component.
+7. `/qr-generator` renders a client-side QR utility; QR generation and PNG/JPEG/PDF export happen in the browser and do not upload user content.
 
 ## Rendering boundaries
 

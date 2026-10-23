@@ -8,6 +8,7 @@
 4. **External pipeline is illustrative.** The Iqbal case study describes Python, `gspread`, CSV, and service-account usage, but the pipeline is not included here.
 5. **Racer content contains placeholders.** Results, media, telemetry, sponsorship deck, and form submission are not yet backed by verified data or a backend.
 6. **No automated test suite.** `package.json` declares lint and build but no test script.
+7. **QR payload and resolution are intentionally bounded.** The generator allows 2,200 UTF-8 bytes and a maximum 2,048 × 2,048 px raster output; larger content or print-specific vector workflows are out of scope for the browser utility.
 
 ## Current facts
 

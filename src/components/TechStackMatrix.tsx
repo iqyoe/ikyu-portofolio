@@ -1,12 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-
-const stackGroups = [
-  { label: 'Cloud & Processing', tone: 'blue', items: ['Apache Spark', 'PySpark', 'BigQuery', 'Google Cloud Platform', 'AWS'] },
-  { label: 'Orchestration & SQL', tone: 'emerald', items: ['Apache Airflow', 'Hive', 'Spark SQL', 'SQL Server', 'dbt'] },
-  { label: 'AI & Analytics', tone: 'violet', items: ['Python', 'LLM automation', 'Power BI', 'Tableau', 'Django'] },
-] as const;
+import type { ResumeSkillGroup } from '@/lib/resume';
 
 const toneStyles = {
   blue: 'border-blue-400/50 bg-blue-500/10 text-blue-300',
@@ -14,16 +9,20 @@ const toneStyles = {
   violet: 'border-blue-400/30 bg-blue-500/10 text-blue-300',
 } as const;
 
-export default function TechStackMatrix() {
+interface TechStackMatrixProps {
+  groups: ResumeSkillGroup[];
+}
+
+export default function TechStackMatrix({ groups }: TechStackMatrixProps) {
   const [selectedGroup, setSelectedGroup] = useState('All');
-  const visibleGroups = selectedGroup === 'All' ? stackGroups : stackGroups.filter((group) => group.label === selectedGroup);
+  const visibleGroups = selectedGroup === 'All' ? groups : groups.filter((group) => group.label === selectedGroup);
 
   return (
     <section id="tech-stack" className="mt-6 scroll-mt-24 rounded-3xl border border-slate-800 bg-slate-900/70 p-5 shadow-sm sm:p-7">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div><p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-400">02 / Tech stack</p><h2 className="mt-2 text-2xl font-black tracking-tight text-white">Tools I use to move data.</h2></div>
         <div className="flex flex-wrap gap-2" role="tablist" aria-label="Technology categories">
-          {['All', ...stackGroups.map((group) => group.label)].map((group) => <button key={group} type="button" role="tab" aria-selected={selectedGroup === group} onClick={() => setSelectedGroup(group)} className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${selectedGroup === group ? 'border-blue-500 bg-blue-500 text-white hover:bg-pink-500' : 'border-slate-700 text-slate-400 hover:border-pink-500'}`}>{group}</button>)}
+          {['All', ...groups.map((group) => group.label)].map((group) => <button key={group} type="button" role="tab" aria-selected={selectedGroup === group} onClick={() => setSelectedGroup(group)} className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${selectedGroup === group ? 'border-blue-500 bg-blue-500 text-white hover:bg-pink-500' : 'border-slate-700 text-slate-400 hover:border-pink-500'}`}>{group}</button>)}
         </div>
       </div>
       <div className="mt-7 grid gap-5 md:grid-cols-3">

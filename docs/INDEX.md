@@ -22,6 +22,7 @@ This directory is the concise source of truth for agents working on the portfoli
 - The Iqbal route group owns project summaries, case studies, the project grid, skills marquee, and timeline.
 - Racer route groups share `RacerPortfolio` while supplying identity, imagery, and accent theme.
 - Iqbal content is loaded from `content/iqbal-lukman/`.
+- The Iqbal page and `/api/resume` share the normalized resume model from `content/iqbal-lukman/resume.json`, project summaries, and MDX frontmatter.
 - The application uses Next.js 16, React 19, Tailwind CSS v4, MDX, Mermaid, and `gray-matter`.
 
 ## Documentation rules

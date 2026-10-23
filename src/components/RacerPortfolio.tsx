@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import type { CSSProperties } from 'react';
 import DriverProfileCarousel from '@/components/DriverProfileCarousel';
 
 type RacerTheme = 'orange' | 'fuchsia';
@@ -17,6 +18,8 @@ const themeStyles = {
     soft: 'bg-emerald-400/10',
     border: 'border-emerald-400/50',
     button: 'bg-emerald-400 text-slate-950 hover:bg-pink-500 hover:text-white',
+    primary: '#00ff85',
+    primarySoft: 'rgba(0, 255, 133, 0.12)',
     line: 'bg-emerald-400',
   },
   fuchsia: {
@@ -25,6 +28,8 @@ const themeStyles = {
     soft: 'bg-blue-500/10',
     border: 'border-blue-400/50',
     button: 'bg-blue-500 text-white hover:bg-pink-500',
+    primary: '#1e90ff',
+    primarySoft: 'rgba(30, 144, 255, 0.12)',
     line: 'bg-blue-500',
   },
 } as const;
@@ -39,9 +44,13 @@ const raceResults = [
 
 export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPortfolioProps) {
   const styles = themeStyles[theme];
+  const themeVariables = {
+    '--button-primary': styles.primary,
+    '--button-primary-soft': styles.primarySoft,
+  } as CSSProperties;
 
   return (
-    <main className="overflow-hidden bg-[#0D0D0D] text-white">
+    <main style={themeVariables} className="overflow-hidden bg-[#0D0D0D] text-white">
       <section className="mx-auto grid min-h-[calc(100vh-73px)] max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[30%_70%] lg:gap-0">
         <div className="flex justify-center lg:pr-10">
           <div className="relative w-full max-w-[20rem]">
@@ -60,7 +69,7 @@ export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPo
           </p>
           <div className="mt-10 flex flex-wrap gap-4 text-sm font-semibold">
             <a href="#contact" className={`rounded-full px-6 py-3 text-white transition ${styles.button}`}>Get in touch</a>
-            <a href="#profile" className="rounded-full border border-slate-700 px-6 py-3 transition hover:border-pink-500">Explore the story</a>
+            <a href="#profile" className="button-outline-primary rounded-full px-6 py-3 transition">Explore the story</a>
           </div>
         </div>
       </section>

@@ -85,6 +85,10 @@ export default function HomePage() {
             </Link>
           ))}
         </section>
+        <section className="mt-24 rounded-3xl border border-emerald-300/30 bg-emerald-300/5 p-8 sm:p-10" aria-label="Portal utilities">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">Portal utility</p>
+          <div className="mt-4 flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><h2 className="font-display text-3xl font-bold text-white">QR code generator</h2><p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300">Create QR codes for URLs or text and download them as PNG, JPEG, or PDF.</p></div><Link href="/qr-generator" className="inline-flex shrink-0 rounded-full bg-emerald-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-white">Open generator →</Link></div>
+        </section>
       </main>
     </>
   );
