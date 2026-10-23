@@ -19,6 +19,7 @@ The site is a hub for three portfolio experiences:
 - `/iqbal-lukman` — data engineering and analytics portfolio with MDX case studies
 - `/ikyu-racer` — Ikyu Racer one-page portfolio
 - `/nadya-racer` — Nadya Racer one-page portfolio
+- `/qr-generator` — browser-local QR generator for URLs and text
 
 The current visual direction is dark, modern, and inspired by the Gerold template style.
 
@@ -35,10 +36,11 @@ The current visual direction is dark, modern, and inspired by the Gerold templat
 
 Iqbal project content is split into two layers:
 
-- `content/iqbal-lukman/projects.json` — project summaries
+- `content/iqbal-lukman/projects.json` — project summaries and stable project numbers
 - `content/iqbal-lukman/projects/*.mdx` — full case studies
+- `content/iqbal-lukman/resume.json` — reusable profile, experience, skill, and education content
 
-`src/lib/projects.ts` connects the two layers by slug. Racer pages currently use component-local content and public image assets.
+`src/lib/projects.ts` connects the project layers by slug. `src/lib/resume.ts` joins those projects with the reusable resume content and optional MDX resume metadata. Racer pages currently use component-local content and public image assets.
 
 ## Current features
 
@@ -47,6 +49,8 @@ Iqbal project content is split into two layers:
 - project cards with images and metadata
 - statically generated Iqbal case-study routes
 - MDX rendering with Mermaid support
+- downloadable PDF resume generated from the shared content model
+- QR code generation with PNG, JPEG, and A4 PDF downloads
 - dark theme presentation
 - racer portfolio layouts with profile, results, media, technical, partner, and contact sections
 - bento-style Iqbal portfolio with interactive technology filters and asymmetric project cards
@@ -85,6 +89,9 @@ Next:
 - `src/components/RacerPortfolio.tsx` — shared racer page
 - `src/components/Mermaid.tsx` — Mermaid renderer
 - `src/lib/projects.ts` — Iqbal content loader
+- `src/lib/resume.ts` — shared resume content loader
+- `src/app/api/resume/route.ts` — PDF resume download route
+- `src/app/qr-generator/page.tsx` — QR generator utility page
 - `content/iqbal-lukman/projects.json` — project summaries
 
 ## Getting started

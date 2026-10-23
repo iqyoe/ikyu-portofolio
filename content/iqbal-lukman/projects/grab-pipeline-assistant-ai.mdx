@@ -7,50 +7,50 @@ category: "AI-Assisted Data Engineering"
 
 ## Project overview
 
-As a Data Engineer at Grab, I developed and launched LLM solutions to support root-cause analysis (RCA) for data pipeline issues. The work focused on preparing useful operational data and connecting it with custom language-model solutions.
+As a Data Engineer at Grab, I worked on the early adoption of LLMs for data-platform operations. The project extended our existing Airflow-based pipeline orchestration with an AI assistant, using the internal AI Agent deployment service to help teams understand and respond to failed pipelines.
 
-The resulting assistants were designed to produce RCA summaries, giving engineers and stakeholders a more structured starting point when investigating pipeline problems.
+Whenever an Airflow pipeline stopped because of a failure, the agent was triggered to summarize what happened, categorize the issue, and recommend the next action. It could distinguish between categories such as infrastructure errors, intermittent errors, user errors, and data-source errors. It also used operational skills to assess whether a failure could be addressed by restarting the pipeline or should be escalated to the on-call team for further investigation.
 
 ## The problem
 
-Pipeline investigations can require engineers to collect context from multiple technical signals before they can explain what happened. This makes RCA summaries time-consuming and can make incident communication inconsistent.
+When a pipeline failed, engineers had to monitor the run, gather the relevant task and error context, determine the likely failure category, and decide whether to retry or involve the on-call team. Repeating this process manually made monitoring costly and made it harder to build a consistent record of what happened across incidents.
 
-The solution needed prepared input data and a tailored interface to the language models so that generated summaries were grounded in the pipeline context available to the team.
+The goal was to make the first response more systematic without removing engineering judgment. The assistant needed to use the context already available from Airflow, explain the failure in a useful summary, classify the issue, and make the recommended response visible to the team.
 
 ## My contribution
 
-- Developed and launched LLM solutions for pipeline RCA summaries.
-- Prepared data with Python and Pandas for integration with custom LLM models.
-- Created tailored assistants for root-cause analysis use cases.
-- Worked with Claude-sonnet, Gemini, and OpenAI models.
-- Connected the resulting summaries to the needs of data pipeline investigation.
+- Designed an Airflow-triggered AI assistant for failed pipeline runs.
+- Connected pipeline task and error context to the internal AI Agent deployment service.
+- Defined issue categories including infrastructure, intermittent, user, and data-source errors.
+- Imbued the agent with skills to recommend a pipeline restart or escalation to the on-call team.
+- Integrated Airflow and the agent with Slack so investigation summaries and follow-up discussions were documented in the relevant channel.
 
 ## Solution
 
 ```mermaid
 graph LR
-    A[Pipeline investigation data] --> B[Python and Pandas preparation]
-    B --> C[Custom LLM integration]
-    C --> D[Claude-sonnet, Gemini, and OpenAI]
-    D --> E[RCA summary assistant]
-    E --> F[Engineering investigation]
+    A[Airflow pipeline fails] --> B[Failure context]
+    B --> C[AI Agent deployment service]
+    C --> D[RCA summary and issue category]
+    D --> E{Recommended response}
+    E --> F[Restart pipeline]
+    E --> G[Escalate to on-call]
+    F --> H[Update Slack thread with resolution]
+    G --> I[Request on-call response in Slack]
 ```
 
-The main deliverable was a set of tailored assistants and the supporting data-preparation flow. The LLM output was an intermediate investigation aid, helping organize root-cause context rather than replacing engineering review.
+The main deliverable was an Airflow-connected AI assistant that helped the team move from a failed run to a structured first response. The agent summarized the incident, categorized the likely cause, and suggested whether to restart the pipeline or escalate the issue. Slack integration kept the summary and discussion together in the monitoring channel, creating a more useful operational record.
 
 ## Technical implementation
 
-- **Data preparation:** Python and Pandas.
-- **AI integration:** Custom LLM integrations.
-- **Models:** Claude-sonnet, Gemini, and OpenAI.
-- **Use case:** Root-cause analysis summaries for data pipeline investigations.
+- **Orchestration:** Apache Airflow, including pipeline task and failure context.
+- **AI integration:** Internal AI Agent deployment service.
+- **Operational workflow:** Failure-triggered RCA, issue categorization, restart-or-escalate recommendations, and Slack collaboration.
 
 ## Outcome and lessons learned
 
-The project launched AI-assisted support for pipeline RCA summaries. It gave engineers a structured way to review available context during investigation while keeping the final diagnosis and action with the engineering team.
-
-No numerical impact is claimed because the available project details do not include validated measures for investigation time, summary accuracy, or adoption.
+The project reduced manual pipeline monitoring effort by 70% by automating the first layer of failure understanding and response guidance. It also made recurring failure patterns easier to observe through consistent categorization and Slack documentation, helping the team understand what happened more often across its pipelines.
 
 ## Reflection
 
-An AI assistant is only as useful as the operational context supplied to it. Preparing and shaping the data before model integration was as important as selecting the model itself.
+This project showed how an AI assistant can add value to an existing operational workflow when it is triggered by the right event and given practical skills. The assistant supported engineering judgment rather than replacing it: it made the first response faster and more consistent, while the on-call team remained responsible for deeper investigation and fixes when needed.

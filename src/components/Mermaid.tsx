@@ -39,7 +39,7 @@ export default function Mermaid({ chart }: MermaidProps) {
   };
 
   useEffect(() => {
-    resetView();
+    const resetFrame = requestAnimationFrame(resetView);
 
     if (containerRef.current) {
       // Clear previous rendering before drawing
@@ -76,6 +76,8 @@ export default function Mermaid({ chart }: MermaidProps) {
         console.error('Mermaid rendering error:', error);
       });
     }
+
+    return () => cancelAnimationFrame(resetFrame);
   }, [chart]);
 
   useEffect(() => {

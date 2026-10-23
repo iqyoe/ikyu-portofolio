@@ -1,5 +1,6 @@
 [
   {
+    "projectNumber": 12,
     "slug": "grab-lending-payment-data-monitoring",
     "title": "Lending and Payment Data Monitoring",
     "category": "Data Engineering & Data Quality",
@@ -9,15 +10,27 @@
     "hasCaseStudy": true
   },
   {
+    "projectNumber": 14,
     "slug": "grab-pipeline-assistant-ai",
     "title": "Pipeline Assistant and AI RCA Solution",
     "category": "AI-Assisted Data Engineering",
-    "summary": "Prepared pipeline data and launched LLM-assisted solutions that generated root-cause analysis summaries for data engineering investigations.",
-    "tags": ["Python", "Pandas", "LLM", "Claude", "Gemini", "OpenAI"],
+    "summary": "Built an Airflow-triggered AI assistant that summarizes pipeline failures, categorizes root causes, recommends restart or escalation paths, and documents incidents in Slack.",
+    "tags": ["Airflow", "AI Agent", "RCA", "Slack", "Pipeline Operations"],
     "featured": false,
     "hasCaseStudy": true
   },
   {
+    "projectNumber": 15,
+    "slug": "grab-ai-assisted-pipeline-migration",
+    "title": "AI Assisted Pipeline Migration",
+    "category": "AI-Assisted Cloud Migration",
+    "summary": "Led an AI-assisted workflow that translated BigQuery SQL into Spark SQL and Python to accelerate the migration of GCP pipelines to the AWS data platform.",
+    "tags": ["BigQuery SQL", "Spark SQL", "Python", "AI Agent", "GCP to AWS"],
+    "featured": false,
+    "hasCaseStudy": true
+  },
+  {
+    "projectNumber": 13,
     "slug": "grab-lending-pipeline-optimization",
     "title": "Lending Pipeline Optimization and Enhancement",
     "category": "Data Engineering & Performance",
@@ -27,6 +40,7 @@
     "hasCaseStudy": true
   },
   {
+    "projectNumber": 9,
     "slug": "grab-regulatory-compliance",
     "title": "Regulatory Compliance Monitoring",
     "category": "Regulatory Data Analytics",
@@ -36,6 +50,7 @@
     "hasCaseStudy": true
   },
   {
+    "projectNumber": 10,
     "slug": "grab-lending-sot-insights",
     "title": "Lending SOT and Insights",
     "category": "Lending Data Analytics",
@@ -45,6 +60,7 @@
     "hasCaseStudy": true
   },
   {
+    "projectNumber": 11,
     "slug": "grab-customer-service-insight",
     "title": "Customer Service Insight",
     "category": "Customer Service Analytics",
@@ -54,6 +70,7 @@
     "hasCaseStudy": true
   },
   {
+    "projectNumber": 8,
     "slug": "ovo-regulatory-compliance",
     "title": "Regulatory Compliance Monitoring",
     "category": "Regulatory Data Analytics",
@@ -63,6 +80,7 @@
     "hasCaseStudy": true
   },
   {
+    "projectNumber": 7,
     "slug": "ovo-user-experience-data-insight",
     "title": "User Experience Data Insight",
     "category": "Product Analytics & User Insights",
@@ -72,6 +90,7 @@
     "hasCaseStudy": true
   },
   {
+    "projectNumber": 6,
     "slug": "ovo-funnel-data-insight",
     "title": "Funnel Data Insight",
     "category": "Product Analytics & Experimentation",
@@ -81,6 +100,7 @@
     "hasCaseStudy": true
   },
   {
+    "projectNumber": 5,
     "slug": "construction-contract-tracker",
     "title": "Construction Contract Lifecycle Monitor",
     "category": "Data Engineering & Analytics",
@@ -91,6 +111,7 @@
     "image": "/image/projects/project-python-to-google-studio.jpg"
   },
   {
+    "projectNumber": 4,
     "slug": "consumer-behavior-dashboard",
     "title": "Consumer Behavior Intelligence Dashboard",
     "category": "Analytics & Product Insights",
@@ -101,6 +122,7 @@
     "image": "/image/projects/consumer-behavior-intelligence-dashboard.jpg"
   },
   {
+    "projectNumber": 3,
     "slug": "mattel-oee-iiot-monitoring",
     "title": "Mattel Manufacturing OEE and IIoT Monitoring",
     "category": "Industrial Analytics & Engineering",
@@ -111,6 +133,7 @@
     "image": "/image/projects/mattel-oee-iiot-monitoring-overview.jpg"
   },
   {
+    "projectNumber": 2,
     "slug": "pwc-enhanced-audit-data-analytics",
     "title": "Enhanced Audit Using Data Analytics",
     "category": "Audit Analytics & Data Engineering",
@@ -120,6 +143,7 @@
     "hasCaseStudy": true
   },
   {
+    "projectNumber": 1,
     "slug": "pwc-data-infrastructure-bi-modernization",
     "title": "Data Infrastructure Modernization & Business Intelligence",
     "category": "Data Infrastructure & Business Intelligence",

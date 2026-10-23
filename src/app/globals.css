@@ -8,6 +8,8 @@
   --accent-green: #00ff85;
   --accent-blue: #1e90ff;
   --accent-pink: #ff0099;
+  --button-primary: var(--accent-blue);
+  --button-primary-soft: rgba(30, 144, 255, 0.12);
   --palette-peach: #0d0d0d;
   --palette-blue: #1e90ff;
   --palette-deep-blue: #1e90ff;
@@ -90,6 +92,17 @@ button:hover {
 
 button[aria-selected="true"]:hover {
   color: #ffffff;
+}
+
+.button-outline-primary {
+  border: 1px solid var(--button-primary);
+  color: var(--button-primary);
+}
+
+.button-outline-primary:hover {
+  border-color: var(--button-primary);
+  background-color: var(--button-primary-soft);
+  color: var(--button-primary);
 }
 
 .font-display {

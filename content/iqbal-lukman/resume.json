@@ -1,0 +1,111 @@
+{
+  "name": "Muhammad Iqbal Lukman",
+  "headline": "Data Engineer",
+  "summary": "Data engineer focused on reliable pipelines, datamarts, monitoring systems, and analytics products across fintech and professional services.",
+  "contact": {
+    "phone": "+62 813 2281 1048",
+    "email": "muhiqballukman@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/iqballukman/",
+    "website": "https://ikyu-portofolio.vercel.app/iqbal-lukman"
+  },
+  "experience": [
+    {
+      "title": "Data Engineer",
+      "company": "Grab",
+      "period": "Oct 2023 — Present",
+      "description": "Maintaining lending and payment data pipelines across GCP and AWS with Airflow, Spark, and Hive. Built data-quality sensors, launched LLM-assisted root-cause summaries, and improved Lending pipeline performance by migrating workloads from Presto to Spark.",
+      "tags": ["Airflow", "Spark / Hive", "GCP / AWS", "LLMs"],
+      "projectSlugs": [
+        "grab-lending-payment-data-monitoring",
+        "grab-pipeline-assistant-ai",
+          "grab-ai-assisted-pipeline-migration",
+        "grab-lending-pipeline-optimization"
+      ]
+    },
+    {
+      "title": "Business Intelligence / Data Analyst",
+      "company": "Grab",
+      "period": "Jan 2022 — Oct 2023",
+      "description": "Built regulatory compliance, user-experience, lending, funnel, and customer-service data products with BigQuery, Presto, dbt, Airflow, and Spark SQL. Delivered audit reports and Tableau or Power BI monitoring insights for compliance, product analytics, lending KPIs, and customer-service performance.",
+      "tags": ["BigQuery", "Airflow", "Spark SQL", "Tableau / Power BI"],
+      "projectSlugs": [
+        "ovo-regulatory-compliance",
+        "ovo-user-experience-data-insight",
+        "ovo-funnel-data-insight",
+        "grab-regulatory-compliance",
+        "grab-lending-sot-insights",
+        "grab-customer-service-insight"
+      ]
+    },
+    {
+      "title": "Data Analytics Associate",
+      "company": "PwC Indonesia",
+      "period": "Sep 2019 — Jan 2022",
+      "description": "Delivered enhanced audit analytics and data infrastructure modernization across banking, insurance, travel, and oil and gas. Unified fragmented financial and transactional data, automated reporting flows, and built Power BI and Python/Django solutions for audit and business stakeholders.",
+      "tags": ["SQL Server", "SSIS", "Python / Django", "Power BI"],
+      "projectSlugs": [
+        "pwc-enhanced-audit-data-analytics",
+        "pwc-data-infrastructure-bi-modernization"
+      ]
+    },
+    {
+      "title": "Engineering Intern",
+      "company": "PT Mattel Indonesia",
+      "period": "Jan 2019 — May 2019",
+      "description": "Worked with the Automation Engineering team to connect custom manufacturing equipment to an IIoT and SCADA monitoring flow. Built OEE monitoring views and a web application that turned machine signals into near-real-time operational insight, with a foundation for extending the approach to additional factory lines.",
+      "tags": ["SCADA", "IIoT", "OEE"],
+      "projectSlugs": ["mattel-oee-iiot-monitoring"]
+    },
+    {
+      "title": "Technology Intern",
+      "company": "Accenture",
+      "period": "May 2018 — Sep 2018",
+      "description": "Supported a telecommunications analytics project by mapping raw data to promotion metrics, building curated datamarts, and delivering weekly Power BI dashboards with data-backed insight presentations. Developed a Python-based Flask and Django web solution that connected directly to a local database, streamlining the manual 2–3 hour export process and demonstrating a reusable path to customer-behavior visualization.",
+      "tags": ["Python", "Power BI", "Datamarts", "UX"],
+      "projectSlugs": ["consumer-behavior-dashboard"]
+    }
+  ],
+  "skillGroups": [
+    {
+      "label": "Cloud & Processing",
+      "tone": "blue",
+      "items": ["Apache Spark", "PySpark", "BigQuery", "Google Cloud Platform", "AWS"]
+    },
+    {
+      "label": "Orchestration & SQL",
+      "tone": "emerald",
+      "items": ["Apache Airflow", "Hive", "Spark SQL", "SQL Server", "dbt"]
+    },
+    {
+      "label": "AI & Analytics",
+      "tone": "violet",
+      "items": ["Python", "LLM automation", "Power BI", "Tableau", "Django"]
+    }
+  ],
+  "education": [
+    {
+      "icon": "🎓",
+      "title": "President University",
+      "detail": "Bachelor of Science in Information Technology · 2015–2019"
+    },
+    {
+      "icon": "🌐",
+      "title": "EF SET English Certificate",
+      "detail": "Advanced / CEFR C1 · Score 68/100"
+    },
+    {
+      "icon": "✦",
+      "title": "Pemberi Materi Workshop \"MIT Appinventor\" Compsphere 2016",
+      "detail": "Published workshop contribution"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Certified Cloud Digital Leader",
+      "issuer": "Google Cloud",
+      "issued": "Apr 2022",
+      "expires": "Apr 2025",
+      "credentialId": "49117280"
+    }
+  ]
+}
