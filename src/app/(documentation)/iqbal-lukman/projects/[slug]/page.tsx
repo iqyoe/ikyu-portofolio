@@ -29,7 +29,7 @@ export default async function ProjectDetailPage({ params }: PageProps<'/iqbal-lu
   if (!project) notFound();
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-12">
+    <main className="iqbal-doc mx-auto max-w-4xl px-6 py-12 text-[var(--foreground)]">
       <Link className="mb-8 inline-flex text-sm text-blue-600 hover:underline dark:text-blue-400" href="/iqbal-lukman">
         &larr; Back to Iqbal&apos;s portfolio
       </Link>
@@ -47,16 +47,16 @@ export default async function ProjectDetailPage({ params }: PageProps<'/iqbal-lu
         </div>
       )}
 
-      <header className="mb-10 border-b border-gray-200 pb-8 dark:border-gray-800">
+      <header className="mb-10 border-b border-[var(--line)] pb-8">
         <span className="text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
           {project.meta.category}
         </span>
-        <h1 className="mt-2 text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+        <h1 className="mt-2 text-3xl font-extrabold text-[var(--foreground)] sm:text-4xl">
           {project.meta.title}
         </h1>
         <div className="mt-4 flex flex-wrap gap-2">
           {project.meta.tags.map((tag) => (
-            <span key={tag} className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+            <span key={tag} className="rounded-full bg-[var(--surface-strong)] px-3 py-1 text-xs font-medium text-[var(--muted)]">
               #{tag}
             </span>
           ))}

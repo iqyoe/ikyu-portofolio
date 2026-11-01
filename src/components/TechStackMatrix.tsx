@@ -18,7 +18,7 @@ export default function TechStackMatrix({ groups }: TechStackMatrixProps) {
   const visibleGroups = selectedGroup === 'All' ? groups : groups.filter((group) => group.label === selectedGroup);
 
   return (
-    <section id="tech-stack" className="mt-6 scroll-mt-24 rounded-3xl border border-slate-800 bg-slate-900/70 p-5 shadow-sm sm:p-7">
+    <section id="tech-stack" className="iqbal-card mt-6 scroll-mt-24 rounded-3xl border border-slate-800 bg-slate-900/70 p-5 shadow-sm sm:p-7">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div><p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-400">02 / Tech stack</p><h2 className="mt-2 text-2xl font-black tracking-tight text-white">Tools I use to move data.</h2></div>
         <div className="flex flex-wrap gap-2" role="tablist" aria-label="Technology categories">
@@ -26,7 +26,7 @@ export default function TechStackMatrix({ groups }: TechStackMatrixProps) {
         </div>
       </div>
       <div className="mt-7 grid gap-5 md:grid-cols-3">
-        {visibleGroups.map((group) => <div key={group.label}><p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">{group.label}</p><div className="mt-3 flex flex-wrap gap-2">{group.items.map((item) => <span key={item} className={`rounded-xl border px-3 py-2 text-sm font-medium ${toneStyles[group.tone]}`}>{item}</span>)}</div></div>)}
+        {visibleGroups.map((group) => <div className="iqbal-skill-group" key={group.label}><p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">{group.label}</p><div className="mt-3 flex flex-wrap gap-2">{group.items.map((item) => <span key={item} className={`rounded-xl border px-3 py-2 text-sm font-medium ${toneStyles[group.tone]}`}>{item}</span>)}</div></div>)}
       </div>
     </section>
   );

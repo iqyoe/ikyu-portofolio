@@ -11,27 +11,24 @@ const portfolios = [
     action: 'Explore portfolio',
     image: '/image/iqbal-lukman-profile.png',
     imageAlt: 'Portrait of Muhammad Iqbal Lukman wearing glasses and a dark blazer',
-    className: 'border-blue-400/50 bg-blue-500/10 hover:border-pink-500 dark:border-blue-900/70 dark:bg-blue-950/30',
   },
   {
     href: '/ikyu-racer',
-    eyebrow: 'Static portfolio',
-    title: 'Ikyu Racer',
-    description: 'A focused one-page racing identity with a bold visual direction.',
-    action: 'Visit Ikyu Racer',
-    image: '/image/profile-racer-male.png',
+    eyebrow: 'Racing identity',
+    title: 'IKYU',
+    description: 'A focused karting portfolio built around precision, pace, and progression.',
+    action: 'Visit IKYU',
+    image: '/image/profile-racer-ikyu.png',
     imageAlt: 'Male racer wearing a racing helmet',
-    className: 'border-emerald-400/50 bg-emerald-400/10 hover:border-pink-500 dark:border-emerald-900/70 dark:bg-emerald-950/30',
   },
   {
     href: '/nadya-racer',
-    eyebrow: 'Static portfolio',
-    title: 'Nadya Racer',
-    description: 'A separate racing identity with its own story, style, and presence.',
-    action: 'Visit Nadya Racer',
+    eyebrow: 'Racing identity',
+    title: 'CHEZNADDZ',
+    description: 'A separate racing story with its own style, voice, and trackside presence.',
+    action: 'Visit CHEZNADDZ',
     image: '/image/profile-racer-femal.png',
     imageAlt: 'Female racer wearing a racing helmet',
-    className: 'border-pink-500/50 bg-pink-500/10 hover:border-pink-500 dark:border-pink-900/70 dark:bg-pink-950/30',
   },
 ];
 
@@ -39,57 +36,58 @@ export default function HomePage() {
   return (
     <>
       <SiteHeader label="Sojitoy Team" homeHref="/" />
-      <main className="mx-auto max-w-6xl px-6 py-20">
-        <section className="max-w-3xl">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-emerald-300">
-            Brand Identities
-          </p>
-          <h1 className="font-display mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
-            Sojitoy Team
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-slate-300">
-            Explore our team members’ portfolios and find the right expertise for your next challenge.
-          </p>
+      <main className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-16">
+        <section className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.32em] text-[var(--accent-blue)]">Brand identities / 2026</p>
+            <h1 className="font-display mt-5 text-5xl font-semibold leading-[0.98] tracking-tight text-[var(--foreground)] sm:text-7xl">Sojitoy Team</h1>
+            <p className="mt-6 max-w-xl text-base leading-7 text-[var(--muted)] sm:text-lg">Three distinct portfolios, one place to find the work, systems, and stories behind the team.</p>
+          </div>
+          <p className="max-w-xs text-sm leading-6 text-[var(--muted)] sm:text-right">Choose a path below. Each portfolio has its own visual language and point of view.</p>
         </section>
 
-        <section className="mt-32 grid gap-20 md:grid-cols-3 md:gap-6" aria-label="Available portfolios">
-          {portfolios.map((portfolio) => (
-            <Link
-              key={portfolio.href}
-              href={portfolio.href}
-              className={`group relative mt-14 flex min-h-[22rem] flex-col items-center rounded-3xl border px-7 pb-8 pt-24 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:text-white ${portfolio.className}`}
-            >
-              <div className="absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 -translate-y-1/2" aria-hidden="true">
-                <div className="absolute inset-0 rounded-full bg-slate-900 shadow-lg shadow-blue-950/30 ring-1 ring-blue-400/50" />
-                <Image
-                  src={portfolio.image}
-                  alt={portfolio.imageAlt}
-                  width={220}
-                  height={277}
-                  sizes="160px"
-                  className="absolute bottom-0 left-1/2 z-10 h-auto w-full max-w-none -translate-x-1/2"
-                />
-              </div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-                {portfolio.eyebrow}
-              </p>
-              <h2 className="font-display mt-8 text-2xl font-bold text-white transition-colors group-hover:text-pink-500">
-                {portfolio.title}
-              </h2>
-              <p className="mt-4 min-h-20 text-sm leading-6 text-slate-300">
-                {portfolio.description}
-              </p>
-              <span className="mt-8 inline-flex text-sm font-semibold text-blue-400">
-                {portfolio.action} <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-              </span>
-            </Link>
-          ))}
-        </section>
-        <section className="mt-24 rounded-3xl border border-emerald-300/30 bg-emerald-300/5 p-8 sm:p-10" aria-label="Portal utilities">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300">Portal utility</p>
-          <div className="mt-4 flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><h2 className="font-display text-3xl font-bold text-white">QR code generator</h2><p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300">Create QR codes for URLs or text and download them as PNG, JPEG, or PDF.</p></div><Link href="/qr-generator" className="inline-flex shrink-0 rounded-full bg-emerald-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-white">Open generator →</Link></div>
+        <section className="mt-12 grid gap-4 md:grid-cols-12 md:auto-rows-[minmax(15rem,auto)]" aria-label="Available portfolios">
+          <Link href={portfolios[0].href} className="group relative min-h-[30rem] overflow-hidden rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-7 shadow-sm transition-[border-color,box-shadow,transform] duration-300 ease-out active:scale-[0.99] hover:-translate-y-1 hover:border-[var(--accent-blue)] hover:shadow-xl hover:shadow-slate-900/10 md:col-span-6 md:row-span-2 sm:p-10">
+            <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[var(--accent-blue)]/10 blur-3xl" aria-hidden="true" />
+            <div className="absolute bottom-0 right-[-1.5rem] h-72 w-64 rounded-t-full bg-[var(--accent-blue)]/10 ring-1 ring-[var(--accent-blue)]/20 sm:h-96 sm:w-80" aria-hidden="true" />
+            <Image src={portfolios[0].image} alt={portfolios[0].imageAlt} width={896} height={1152} sizes="(min-width: 768px) 35vw, 70vw" className="absolute bottom-0 right-[-1rem] z-0 h-auto w-56 opacity-90 transition duration-500 group-hover:scale-[1.03] sm:right-4 sm:w-72" />
+            <div className="relative z-10 max-w-md">
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-[var(--accent-blue)]">01 / {portfolios[0].eyebrow}</p>
+              <h2 className="font-display mt-5 text-4xl font-semibold leading-[0.98] tracking-tight text-[var(--foreground)] sm:text-6xl">{portfolios[0].title}</h2>
+              <p className="mt-5 max-w-sm text-base leading-7 text-[var(--muted)]">{portfolios[0].description}</p>
+              <span className="mt-8 inline-flex items-center text-sm font-semibold text-[var(--accent-blue)]">{portfolios[0].action}<span className="ml-2 transition-transform duration-200 ease-out group-hover:translate-x-1">↗</span></span>
+            </div>
+          </Link>
+
+          <PortfolioCard portfolio={portfolios[1]} />
+          <PortfolioCard portfolio={portfolios[2]} />
+
+          <section className="flex flex-col justify-between gap-6 rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-7 md:col-span-12 sm:flex-row sm:items-end sm:p-8" aria-label="Portal utility">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-[var(--accent-blue)]">Portal utility</p>
+              <h2 className="mt-3 text-2xl font-black tracking-tight text-[var(--foreground)] sm:text-3xl">Make the next connection easy.</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)]">Create QR codes for URLs or short text and download them as PNG, JPEG, or PDF.</p>
+            </div>
+            <Link href="/qr-generator" className="inline-flex w-fit shrink-0 rounded-full bg-[var(--accent-blue)] px-5 py-3 text-sm font-bold text-white transition hover:bg-[var(--accent-blue)]/85">Open QR generator ↗</Link>
+          </section>
         </section>
       </main>
     </>
+  );
+}
+
+function PortfolioCard({ portfolio }: { portfolio: (typeof portfolios)[number] }) {
+  const accent = 'text-[var(--accent-blue)]';
+
+  return (
+    <Link href={portfolio.href} className="group relative grid min-h-[18rem] grid-cols-[minmax(0,1fr)_9rem] items-stretch overflow-hidden rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-8 transition-[border-color,box-shadow,transform] duration-300 ease-out active:scale-[0.99] hover:-translate-y-1 hover:border-[var(--accent-blue)] hover:shadow-xl hover:shadow-slate-900/10 md:col-span-6">
+      <div className="relative z-10 flex min-w-0 flex-col items-start justify-between">
+        <p className={`text-xs font-bold uppercase tracking-[0.25em] ${accent}`}>{portfolio.eyebrow}</p>
+        <h2 className="font-display mt-4 text-3xl font-semibold leading-none tracking-tight text-[var(--foreground)]">{portfolio.title}</h2>
+        <p className="mt-4 text-sm leading-6 text-[var(--muted)]">{portfolio.description}</p>
+        <span className={`mt-6 inline-flex text-sm font-semibold ${accent}`}>{portfolio.action}<span className="ml-2 transition-transform duration-200 ease-out group-hover:translate-x-1">↗</span></span>
+      </div>
+      <Image src={portfolio.image} alt={portfolio.imageAlt} width={373} height={468} sizes="(min-width: 768px) 20vw, 40vw" className="absolute bottom-0 right-[-0.5rem] h-auto w-40 opacity-90 transition-transform duration-300 ease-out group-hover:scale-[1.03]" />
+    </Link>
   );
 }

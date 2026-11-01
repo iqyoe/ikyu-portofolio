@@ -51,7 +51,7 @@ Iqbal project content is split into two layers:
 - MDX rendering with Mermaid support
 - downloadable PDF resume generated from the shared content model
 - QR code generation with PNG, JPEG, and A4 PDF downloads
-- dark theme presentation
+- dark-default theme with a shared dark/light toggle
 - racer portfolio layouts with profile, results, media, technical, partner, and contact sections
 - bento-style Iqbal portfolio with interactive technology filters and asymmetric project cards
 - legacy `/projects/:slug` redirect to `/iqbal-lukman/projects/:slug`
@@ -67,7 +67,7 @@ Done:
 - JSON and MDX content loading
 - project filtering and case-study routing
 - Mermaid support inside MDX
-- dark-only visual theme
+- dark-default presentation with light shell tokens
 - racer profile and machinery carousel components
 
 Next:
@@ -114,3 +114,7 @@ npm run build
 
 - The repository contains populated Iqbal case studies for construction contract tracking, consumer behavior, Mattel manufacturing, and two PwC projects.
 - Racer sections include clearly marked placeholders where official results, media, telemetry, or sponsorship materials are not yet available.
+- See [docs/site-review.md](./docs/site-review.md) for the route review and [docs/bento-homepage-and-documentation-context.md](./docs/bento-homepage-and-documentation-context.md) for the bento/documentation implementation context.
+
+
+

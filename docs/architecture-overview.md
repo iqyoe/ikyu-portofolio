@@ -24,8 +24,9 @@ This is a small Next.js App Router site with three portfolio experiences. The st
 
 ## Styling and theme model
 
-Tailwind CSS is imported through `src/app/globals.css`. The root layout forces a dark-only theme through `next-themes`; racer pages use orange or fuchsia accents through shared component props.
+Tailwind CSS is imported through `src/app/globals.css`. The root layout uses `next-themes` with a dark default and a shared `ThemeToggle`; shell variables switch between light and dark values, while racer pages use orange or fuchsia accents through shared component props.
 
 ## Boundaries and unknowns
 
 The application has a repository-backed content boundary rather than a database or API. Hosting, CDN behavior, CI, authentication, and external race-data integrations are not defined in the repository.
+
