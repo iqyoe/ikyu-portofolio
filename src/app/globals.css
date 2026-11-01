@@ -1,27 +1,40 @@
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Inter:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #0d0d0d;
-  --foreground: #ffffff;
-  --accent-green: #00ff85;
-  --accent-blue: #1e90ff;
-  --accent-pink: #ff0099;
+  --background: #f0f2f5;
+  --foreground: #1a1f2c;
+  --surface: #ffffff;
+  --surface-strong: #e7eaf0;
+  --header-bg: rgba(240, 242, 245, 0.9);
+  --line: #d3d8e2;
+  --muted: #576076;
+  --accent-green: #4770ff;
+  --accent-blue: #4770ff;
+  --accent-pink: #4770ff;
   --button-primary: var(--accent-blue);
   --button-primary-soft: rgba(30, 144, 255, 0.12);
-  --palette-peach: #0d0d0d;
-  --palette-blue: #1e90ff;
-  --palette-deep-blue: #1e90ff;
-  --palette-brown: #00ff85;
-  --bs-body-color: #ffffff;
-  --bs-secondary: #b3b3b3;
-  color-scheme: dark;
+  --palette-peach: #f0f2f5;
+  --palette-blue: #4770ff;
+  --palette-deep-blue: #4770ff;
+  --palette-brown: #4770ff;
+  --bs-body-color: #1a1f2c;
+  --bs-secondary: #576076;
+  color-scheme: light;
 }
 
 .dark {
-  --background: #0d0d0d;
-  --foreground: #ffffff;
+  --background: #1a1f2c;
+  --foreground: #f0f2f5;
+  --surface: #0e1018;
+  --surface-strong: #202638;
+  --header-bg: rgba(26, 31, 44, 0.9);
+  --line: #374151;
+  --muted: #a6aec1;
+  --accent-green: #7c9bff;
+  --accent-blue: #7c9bff;
+  --accent-pink: #7c9bff;
   color-scheme: dark;
 }
 
@@ -75,7 +88,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
-  --font-display: "Abril Fatface", Georgia, serif;
+  --font-display: "Bricolage Grotesque", "Inter", sans-serif;
   --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
 }
 
@@ -83,6 +96,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 a:hover,
@@ -105,8 +119,82 @@ button[aria-selected="true"]:hover {
   color: var(--button-primary);
 }
 
+/* Iqbal's documentation portfolio uses a route-scoped crimson and forest palette. */
+.iqbal-theme {
+  --iqbal-primary: #2f6b3b;
+  --iqbal-primary-rgb: 47 107 59;
+  --iqbal-accent: #b42318;
+  --iqbal-accent-rgb: 180 35 24;
+  --iqbal-forest: #2f6b3b;
+  --iqbal-forest-rgb: 47 107 59;
+  --iqbal-hero-bg: #ffffff;
+  --iqbal-hero-fg: #1a1f2c;
+  --accent-blue: var(--iqbal-primary);
+  --accent-pink: var(--iqbal-accent);
+  --accent-green: var(--iqbal-forest);
+  --button-primary: var(--iqbal-primary);
+  --button-primary-soft: rgb(var(--iqbal-primary-rgb) / 0.12);
+}
+
+.dark .iqbal-theme {
+  --iqbal-primary: #f87171;
+  --iqbal-primary-rgb: 248 113 113;
+  --iqbal-accent: #f87171;
+  --iqbal-accent-rgb: 248 113 113;
+  --iqbal-forest: #7fba87;
+  --iqbal-forest-rgb: 127 186 135;
+  --iqbal-hero-bg: #0e1018;
+  --iqbal-hero-fg: #f0f2f5;
+}
+
+.iqbal-theme [class*="text-blue-"] { color: var(--iqbal-primary) !important; }
+.iqbal-theme [class*="text-pink-"] { color: var(--iqbal-accent) !important; }
+.iqbal-theme [class*="text-emerald-"] { color: var(--iqbal-forest) !important; }
+.iqbal-theme [class*="border-blue-"] { border-color: rgb(var(--iqbal-primary-rgb) / 0.42) !important; }
+.iqbal-theme [class*="border-pink-"] { border-color: rgb(var(--iqbal-accent-rgb) / 0.42) !important; }
+.iqbal-theme [class*="border-emerald-"] { border-color: rgb(var(--iqbal-forest-rgb) / 0.45) !important; }
+.iqbal-theme [class*="bg-blue-500/"] { background-color: rgb(var(--iqbal-primary-rgb) / 0.12) !important; }
+.iqbal-theme [class*="bg-blue-400/"] { background-color: rgb(var(--iqbal-primary-rgb) / 0.12) !important; }
+.iqbal-theme [class~="bg-blue-500"],
+.iqbal-theme [class~="bg-blue-600"] { background-color: var(--iqbal-primary) !important; }
+.iqbal-theme [class*="bg-emerald-"] { background-color: rgb(var(--iqbal-forest-rgb) / 0.12) !important; }
+.iqbal-theme [class*="hover:bg-pink-"]:hover { background-color: var(--iqbal-accent) !important; }
+.iqbal-theme [class*="hover:bg-blue-"]:hover { background-color: var(--iqbal-primary) !important; }
+.iqbal-theme [class*="hover:border-pink-"]:hover { border-color: var(--iqbal-accent) !important; }
+.iqbal-theme [class*="hover:border-blue-"]:hover { border-color: var(--iqbal-primary) !important; }
+.iqbal-theme .iqbal-card {
+  border-color: rgb(var(--iqbal-primary-rgb) / 0.28) !important;
+  background-color: rgb(var(--iqbal-primary-rgb) / 0.05) !important;
+}
+.iqbal-theme .iqbal-card:hover { border-color: var(--iqbal-primary) !important; }
+html:not(.dark) .iqbal-theme .iqbal-card,
+html:not(.dark) .iqbal-theme .iqbal-card[class~="text-white"],
+html:not(.dark) .iqbal-theme .iqbal-card [class~="text-white"] { color: var(--foreground) !important; }
+html:not(.dark) .iqbal-theme .iqbal-card [class*="text-slate-3"],
+html:not(.dark) .iqbal-theme .iqbal-card [class*="text-slate-4"] { color: var(--muted) !important; }
+html:not(.dark) .iqbal-theme .iqbal-card [class*="bg-slate-8"] { background-color: var(--surface-strong) !important; }
+html:not(.dark) .iqbal-theme .iqbal-card [class*="border-slate-"] { border-color: var(--line) !important; }
+.iqbal-theme .iqbal-hero { background-color: var(--iqbal-hero-bg) !important; color: var(--iqbal-hero-fg); }
+html:not(.dark) .iqbal-theme .iqbal-hero [class*="text-slate-3"],
+html:not(.dark) .iqbal-theme .iqbal-hero [class*="text-slate-4"] { color: var(--muted) !important; }
+html:not(.dark) .iqbal-theme .iqbal-hero [class*="hover:text-white"]:hover { color: var(--iqbal-primary) !important; }
+html:not(.dark) .iqbal-theme [class~="text-white"] { color: var(--foreground) !important; }
+html:not(.dark) .iqbal-theme [class*="dark:text-white"] { color: var(--foreground) !important; }
+html:not(.dark) .iqbal-theme .iqbal-dark-surface,
+html:not(.dark) .iqbal-theme .iqbal-dark-surface [class~="text-white"] { color: #f0f2f5 !important; }
+html:not(.dark) .iqbal-theme .iqbal-dark-surface { background-color: #1a1f2c !important; }
+html:not(.dark) .iqbal-theme .iqbal-dark-surface [class*="dark:text-white"],
+html:not(.dark) .iqbal-theme .iqbal-dark-surface [class~="text-white"] { color: #f0f2f5 !important; }
+.iqbal-theme .iqbal-heading { color: var(--foreground) !important; }
+.iqbal-theme .iqbal-dark-surface .iqbal-heading { color: #f0f2f5 !important; }
+.iqbal-theme .prose { color: var(--foreground); }
+.iqbal-theme .prose :where(h1,h2,h3,h4,strong,th) { color: var(--foreground); }
+.iqbal-theme .prose :where(a) { color: var(--iqbal-primary); }
+.iqbal-theme .prose :where(a:hover) { color: var(--iqbal-accent); }
+.iqbal-theme .prose :where(code) { color: var(--foreground); }
+
 .font-display {
-  letter-spacing: 0.1em;
+  letter-spacing: -0.025em;
 }
 
 @keyframes marquee {

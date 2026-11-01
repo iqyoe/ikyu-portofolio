@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ThemeToggle from '@/components/ThemeToggle';
 
 interface SiteHeaderProps {
   label: string;
@@ -11,26 +12,22 @@ export default function SiteHeader({
   label,
   homeHref,
   links = [],
-  tone = 'default',
 }: SiteHeaderProps) {
-  const isRacer = tone === 'racer';
-
   return (
-    <header className={isRacer
-      ? 'border-b border-slate-800/80 bg-slate-950/85 backdrop-blur'
-      : 'border-b border-slate-800/80 bg-slate-950/90 backdrop-blur'}>
+    <header className="border-b border-[var(--line)] bg-[var(--header-bg)] backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
-        <Link href={homeHref} className="font-display text-sm font-semibold tracking-wide text-white">
+        <Link href={homeHref} className="font-display text-sm font-semibold tracking-wide text-[var(--foreground)]">
           {label}
         </Link>
-        <div>
-          <nav className="hidden items-center gap-5 text-sm text-slate-300 sm:flex" aria-label="Primary navigation">
+        <div className="flex items-center gap-4">
+          <nav className="hidden items-center gap-5 text-sm text-[var(--muted)] sm:flex" aria-label="Primary navigation">
             {links.map((link) => (
-              <Link key={link.href} href={link.href} className="transition-colors hover:text-pink-500">
+              <Link key={link.href} href={link.href} className="transition-colors hover:text-[var(--accent-pink)]">
                 {link.label}
               </Link>
             ))}
           </nav>
+          <ThemeToggle />
         </div>
       </div>
     </header>

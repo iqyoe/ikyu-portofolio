@@ -15,6 +15,8 @@ This directory is the concise source of truth for agents working on the portfoli
 - [Roadmap](./roadmap.md) — maintenance priorities.
 - [Journal](./journal.md) — documentation update history.
 - [Validation report](./validation-report.md) — checks run for the current source state.
+- [Site review](./site-review.md) — route-by-route review, reference comparison, and prioritized findings.
+- [Bento homepage and documentation context](./bento-homepage-and-documentation-context.md) — how the bento composition and documentation content flow are built.
 
 ## Verified facts
 
@@ -30,3 +32,5 @@ This directory is the concise source of truth for agents working on the portfoli
 - Treat source files as authoritative when prose and implementation differ.
 - Mark hosting, CI, tests, external integrations, and unverified portfolio content as unknown or placeholder.
 - Update this index and the relevant document when routes, content contracts, commands, or known risks change.
+
+

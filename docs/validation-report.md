@@ -29,3 +29,9 @@ No test script is declared in `package.json`.
 ## Documentation decision
 
 This pass changes documentation only; application runtime files were not edited.
+
+## 2026-10-31 review update
+
+- Added [`site-review.md`](./site-review.md) for route-by-route findings and reference comparison.
+- Added [`bento-homepage-and-documentation-context.md`](./bento-homepage-and-documentation-context.md) for the homepage bento and documentation content flow.
+- Confirmed `npm.cmd run lint`, `npm.cmd run validate:resume`, and `npm.cmd run build` pass; local HTTP smoke tests returned 200 for every public route.

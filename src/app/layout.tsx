@@ -14,7 +14,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning className="h-full antialiased">
       <body suppressHydrationWarning className="min-h-full bg-background font-sans text-foreground">
-        <ThemeProvider attribute="class" forcedTheme="dark">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <div className="min-h-screen">{children}</div>
         </ThemeProvider>
       </body>
