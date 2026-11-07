@@ -6,5 +6,6 @@ export const metadata = {
 };
 
 export default function NadyaRacerPage() {
-  return <RacerPortfolio name="CHEZNADDZ" image="/image/profile-racer-femal.png" imageAlt="Female racer wearing a racing helmet and suit" theme="fuchsia" />;
+  return <RacerPortfolio name="CHEZNADDZ" image="/image/profile-racer-cheznaddz.png" imageAlt="CHEZNADDZ racer portrait" theme="fuchsia" />;
 }
+

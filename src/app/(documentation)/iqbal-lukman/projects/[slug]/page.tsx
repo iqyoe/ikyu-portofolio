@@ -1,9 +1,9 @@
 import { getProjectBySlug, getAllProjects } from '@/lib/projects';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Mermaid from '@/components/Mermaid';
+import ProjectImageLightbox from '@/components/ProjectImageLightbox';
 
 type CodeProps = React.ComponentPropsWithoutRef<'code'>;
 
@@ -36,12 +36,11 @@ export default async function ProjectDetailPage({ params }: PageProps<'/iqbal-lu
 
       {project.meta.image && (
         <div className="relative mb-10 aspect-[16/9] overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-gray-900">
-          <Image
+          <ProjectImageLightbox
             src={project.meta.image}
             alt={`${project.meta.title} project overview`}
-            fill
+            title={project.meta.title}
             sizes="(min-width: 1024px) 896px, 100vw"
-            className="object-cover"
             priority
           />
         </div>

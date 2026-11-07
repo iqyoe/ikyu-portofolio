@@ -17,7 +17,8 @@
     "summary": "Built an Airflow-triggered AI assistant that summarizes pipeline failures, categorizes root causes, recommends restart or escalation paths, and documents incidents in Slack.",
     "tags": ["Airflow", "AI Agent", "RCA", "Slack", "Pipeline Operations"],
     "featured": false,
-    "hasCaseStudy": true
+    "hasCaseStudy": true,
+    "image": "/image/projects/pipeline-assistant-ai.jpg"
   },
   {
     "projectNumber": 15,
@@ -27,7 +28,8 @@
     "summary": "Led an AI-assisted workflow that translated BigQuery SQL into Spark SQL and Python to accelerate the migration of GCP pipelines to the AWS data platform.",
     "tags": ["BigQuery SQL", "Spark SQL", "Python", "AI Agent", "GCP to AWS"],
     "featured": false,
-    "hasCaseStudy": true
+    "hasCaseStudy": true,
+    "image": "/image/projects/ai-assisted-pipeline-migration.jpg"
   },
   {
     "projectNumber": 13,
@@ -153,3 +155,5 @@
     "hasCaseStudy": true
   }
 ]
+
+
