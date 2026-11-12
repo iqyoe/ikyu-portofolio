@@ -7,6 +7,7 @@ import { jsPDF } from 'jspdf';
 const MAX_BYTES = 2200;
 const MAX_SIZE = 2048;
 const SIZE_OPTIONS = [256, 512, 1024, 1536, MAX_SIZE];
+const formatNumber = (value: number) => value.toLocaleString('en-US');
 
 function downloadBlob(blob: Blob, filename: string) {
   const url = URL.createObjectURL(blob);
@@ -28,6 +29,7 @@ export default function QrGenerator() {
   const [size, setSize] = useState(512);
   const [error, setError] = useState('');
   const [isGenerating, setIsGenerating] = useState(true);
+  const [previewUrl, setPreviewUrl] = useState('');
   const generationRef = useRef(0);
   const byteLength = new TextEncoder().encode(value).length;
   const isTooLarge = byteLength > MAX_BYTES;
@@ -41,17 +43,21 @@ export default function QrGenerator() {
 
       if (!value || isTooLarge) {
         canvas.getContext('2d')?.clearRect(0, 0, canvas.width, canvas.height);
+        setPreviewUrl('');
         setIsGenerating(false);
         return;
       }
 
-      QRCode.toCanvas(canvas, value, {
+      const options = {
         width: size,
         margin: 2,
-        errorCorrectionLevel: 'M',
+        errorCorrectionLevel: 'M' as const,
         color: { dark: '#000000', light: '#ffffff' },
-      }).then(() => {
+      };
+
+      Promise.all([QRCode.toCanvas(canvas, value, options), QRCode.toDataURL(value, options)]).then(([, dataUrl]) => {
         if (generationRef.current === generationId) {
+          setPreviewUrl(dataUrl);
           setError('');
           setIsGenerating(false);
         }
@@ -101,17 +107,21 @@ export default function QrGenerator() {
         </div>
         <label className="mt-8 block text-sm font-semibold text-slate-200" htmlFor="qr-content">{mode === 'url' ? 'URL to share' : 'Text to share'}</label>
         <textarea id="qr-content" value={value} onChange={(event) => { setValue(event.target.value); setError(''); setIsGenerating(true); }} rows={mode === 'url' ? 3 : 7} maxLength={4000} placeholder={mode === 'url' ? 'https://example.com' : 'Write any short message...'} className="mt-3 w-full resize-y rounded-2xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm leading-6 text-white outline-none transition placeholder:text-slate-500 focus:border-emerald-300" />
-        <div className="mt-2 flex justify-between text-xs text-slate-500"><span>{byteLength.toLocaleString()} / {MAX_BYTES.toLocaleString()} bytes</span><span>UTF-8</span></div>
+        <div className="mt-2 flex justify-between text-xs text-slate-500"><span>{formatNumber(byteLength)} / {formatNumber(MAX_BYTES)} bytes</span><span>UTF-8</span></div>
         <label className="mt-8 block text-sm font-semibold text-slate-200" htmlFor="qr-size">Output resolution</label>
         <select id="qr-size" value={size} onChange={(event) => { setSize(Number(event.target.value)); setIsGenerating(true); }} className="mt-3 w-full rounded-2xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-emerald-300">{SIZE_OPTIONS.map((option) => <option key={option} value={option}>{option} × {option} px</option>)}</select>
-        {isTooLarge && <p className="mt-4 text-sm text-rose-300">This content is too long. Shorten it to {MAX_BYTES.toLocaleString()} bytes or less.</p>}
+        {isTooLarge && <p className="mt-4 text-sm text-rose-300">This content is too long. Shorten it to {formatNumber(MAX_BYTES)} bytes or less.</p>}
         {error && !isTooLarge && <p className="mt-4 text-sm text-rose-300">{error}</p>}
         <div className="mt-8 flex flex-wrap gap-3"><button type="button" onClick={() => downloadImage('png')} className="rounded-full bg-emerald-300 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-white">Download PNG</button><button type="button" onClick={() => downloadImage('jpeg')} className="button-outline-primary rounded-full px-5 py-3 text-sm font-bold text-white transition">Download JPEG</button><button type="button" onClick={downloadPdf} className="button-outline-primary rounded-full px-5 py-3 text-sm font-bold text-white transition">Download PDF</button></div>
       </section>
-      <section className="flex min-h-[24rem] flex-col items-center justify-center rounded-3xl border border-emerald-300/30 bg-white p-8 text-center" aria-label="QR code preview">
-        <div className="relative aspect-square w-full max-w-[20rem] overflow-hidden rounded-lg shadow-[0_0_32px_rgba(255,255,255,0.3)]">
-          <canvas ref={canvasRef} width={size} height={size} className="absolute inset-0 block h-full w-full" aria-label="Generated QR code" />
-          {isGenerating && <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/30 backdrop-blur-[1px]" role="status" aria-label="Generating QR code"><span className="h-12 w-12 animate-spin rounded-full border-4 border-slate-300/70 border-t-emerald-400 shadow-[0_0_18px_rgba(255,255,255,0.8)]" /><span className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-700">Processing</span></div>}
+      <section className="flex min-h-[20rem] flex-col items-center justify-center rounded-3xl border border-emerald-300/30 bg-white p-5 text-center sm:min-h-[22rem] sm:p-6" aria-label="QR code preview">
+        <div className="qr-preview-frame relative flex aspect-square w-full items-center justify-center rounded-lg bg-white shadow-[0_0_32px_rgba(255,255,255,0.3)]">
+          <div className="qr-preview-code relative aspect-square overflow-hidden rounded-[0.35rem]">
+            {/* QR data URLs are generated locally; next/image cannot optimize this browser-only value. */}
+            {previewUrl && <img /* eslint-disable-line @next/next/no-img-element */ src={previewUrl} alt="Generated QR code" className="block aspect-square h-auto w-full" />}
+            <canvas ref={canvasRef} width={size} height={size} className="sr-only" aria-hidden="true" />
+            {isGenerating && <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/30 backdrop-blur-[1px]" role="status" aria-label="Generating QR code"><span className="h-12 w-12 animate-spin rounded-full border-4 border-slate-300/70 border-t-emerald-400 shadow-[0_0_18px_rgba(255,255,255,0.8)]" /><span className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-700">Processing</span></div>}
+          </div>
         </div>
         <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{size} × {size} px preview</p><p className="mt-2 max-w-xs text-xs leading-5 text-slate-500">Generated locally in your browser. Your content is not uploaded.</p>
       </section>

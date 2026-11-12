@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { CSSProperties } from 'react';
 import DriverProfileCarousel from '@/components/DriverProfileCarousel';
+import SectionRail from '@/components/SectionRail';
 
 type RacerTheme = 'orange' | 'fuchsia';
 
@@ -51,7 +52,8 @@ export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPo
 
   return (
     <main style={themeVariables} className="overflow-hidden bg-[#0D0D0D] text-white">
-      <section className="mx-auto grid min-h-[calc(100vh-73px)] max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[30%_70%] lg:gap-0">
+      <SectionRail accent={styles.primary} sections={[{ id: 'racer-overview', label: 'Overview' }, { id: 'profile', label: 'Driver profile' }, { id: 'track-record', label: 'Track record' }, { id: 'media', label: 'Media' }, { id: 'technical', label: 'Technical edge' }, { id: 'partners', label: 'Partners' }, { id: 'contact', label: 'Contact' }]} />
+      <section id="racer-overview" className="mx-auto grid min-h-[calc(100vh-73px)] scroll-mt-24 max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[30%_70%] lg:gap-0">
         <div className="flex justify-center lg:pr-10">
           <div className="relative w-full max-w-[20rem]">
             <div className={`absolute inset-x-0 top-1/2 aspect-square -translate-y-1/2 rounded-full ${theme === 'orange' ? 'bg-black dark:bg-white' : 'bg-black dark:bg-white'}`} aria-hidden="true" />
@@ -93,7 +95,7 @@ export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPo
         </div>
       </section>
 
-      <section className="bg-slate-900/60 px-6 py-24">
+      <section id="track-record" className="bg-slate-900/60 px-6 py-24 scroll-mt-24">
         <div className="mx-auto max-w-6xl">
           <SectionIntro eyebrow="02 / Track record" title="Progress you can measure." />
           <div className="mt-12 overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800">
@@ -110,7 +112,7 @@ export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPo
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section id="media" className="mx-auto max-w-6xl px-6 py-24 scroll-mt-24">
         <SectionIntro eyebrow="03 / Media" title="Bring the paddock to the page." />
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {['On-track action', 'Pit-lane preparation', 'Helmet & livery'].map((label) => (
@@ -125,14 +127,14 @@ export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPo
         </div>
       </section>
 
-      <section className={`border-y ${styles.border} ${styles.soft}`}>
+      <section id="technical" className={`border-y ${styles.border} ${styles.soft} scroll-mt-24`}>
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 lg:grid-cols-2">
           <div><SectionIntro eyebrow="04 / Technical edge" title="The lap is the output. The process is the advantage." /><p className="mt-6 max-w-xl leading-7 text-slate-600 dark:text-slate-300">Use this section to show lap-timer analysis, sector breakdowns, telemetry review, and data-driven line optimization alongside the physical work required to stay consistent.</p></div>
           <div className="grid gap-4 sm:grid-cols-2"><Feature title="Telemetry" text="Sector analysis and line optimization" styles={styles} /><Feature title="Conditioning" text="Cardio, core, and neck-strength routine" styles={styles} /><Feature title="Simulation" text="Repeatable practice between race days" styles={styles} /><Feature title="Race review" text="Structured debrief after every session" styles={styles} /></div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
+      <section id="partners" className="mx-auto max-w-6xl px-6 py-24 scroll-mt-24">
         <SectionIntro eyebrow="05 / Partners" title="Build the next campaign together." />
         <div className="mt-12 grid gap-5 lg:grid-cols-3"><Feature title="Brand exposure" text="Helmet, suit, kart, and trackside placement." styles={styles} /><Feature title="Digital reach" text="Vlogs, track walkthroughs, and livery reveals." styles={styles} /><Feature title="Guest experience" text="Paddock access and track-day engagement." styles={styles} /></div>
         <div className={`mt-8 rounded-2xl border p-8 ${styles.border} ${styles.soft}`}><p className={`text-xs font-semibold uppercase tracking-[0.25em] ${styles.accent}`}>Sponsorship deck</p><p className="mt-3 text-lg font-semibold">Formal sponsorship proposal coming soon.</p><p className="mt-2 text-sm text-slate-600 dark:text-slate-300">A downloadable deck can be linked here when the campaign package is ready.</p></div>

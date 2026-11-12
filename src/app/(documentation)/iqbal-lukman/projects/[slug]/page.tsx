@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Mermaid from '@/components/Mermaid';
 import ProjectImageLightbox from '@/components/ProjectImageLightbox';
+import SectionRail from '@/components/SectionRail';
 
 type CodeProps = React.ComponentPropsWithoutRef<'code'>;
 
@@ -30,10 +31,12 @@ export default async function ProjectDetailPage({ params }: PageProps<'/iqbal-lu
 
   return (
     <main className="iqbal-doc mx-auto max-w-4xl px-6 py-12 text-[var(--foreground)]">
+      <SectionRail sections={[{ id: 'case-study-overview', label: 'Overview' }, { id: 'case-study-content', label: 'Case study' }]} accent="var(--iqbal-primary)" />
       <Link className="mb-8 inline-flex text-sm text-blue-600 hover:underline dark:text-blue-400" href="/iqbal-lukman">
         &larr; Back to Iqbal&apos;s portfolio
       </Link>
 
+      <div id="case-study-overview" className="scroll-mt-24">
       {project.meta.image && (
         <div className="relative mb-10 aspect-[16/9] overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-gray-900">
           <ProjectImageLightbox
@@ -61,8 +64,9 @@ export default async function ProjectDetailPage({ params }: PageProps<'/iqbal-lu
           ))}
         </div>
       </header>
+      </div>
 
-      <article className="prose max-w-none dark:prose-invert">
+      <article id="case-study-content" className="prose max-w-none scroll-mt-24 dark:prose-invert">
         <MDXRemote components={mdxComponents} source={project.content} />
       </article>
     </main>
