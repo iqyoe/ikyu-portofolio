@@ -3,6 +3,7 @@
 @plugin "@tailwindcss/typography";
 
 :root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --background: #f0f2f5;
   --foreground: #1a1f2c;
   --surface: #ffffff;
@@ -22,6 +23,30 @@
   --bs-body-color: #1a1f2c;
   --bs-secondary: #576076;
   color-scheme: light;
+}
+
+.reveal-on-scroll {
+  display: contents;
+}
+
+.reveal-on-scroll.reveal-ready {
+  display: block;
+  opacity: 0;
+  transform: translateY(1rem) scale(0.98);
+  transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-on-scroll.reveal-ready.reveal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll.reveal-ready {
+    transform: none;
+    transition: opacity 180ms ease;
+  }
 }
 
 .dark {
@@ -97,6 +122,98 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   transition: background-color 180ms ease, color 180ms ease;
+}
+
+/* QR preview sizing stays local to the utility page and remains stable across browsers. */
+.qr-preview-frame { max-width: 16rem; }
+.qr-preview-code { width: clamp(7rem, 52vw, 10rem); }
+
+@media (max-width: 639px) {
+  .qr-preview-frame { max-width: 14rem; }
+  .qr-preview-code { width: min(58vw, 9rem); }
+}
+
+html:not(.dark) .qr-page .text-white { color: var(--foreground) !important; }
+html:not(.dark) .qr-page .text-slate-300,
+html:not(.dark) .qr-page .text-slate-200 { color: var(--muted) !important; }
+html:not(.dark) .qr-page .bg-slate-950\/70 { background-color: var(--surface) !important; }
+html:not(.dark) .qr-page .bg-slate-900 { background-color: var(--surface-strong) !important; color: var(--foreground) !important; }
+html:not(.dark) .qr-page .border-slate-800,
+html:not(.dark) .qr-page .border-slate-700 { border-color: var(--line) !important; }
+
+.section-rail {
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  right: clamp(1rem, 3vw, 3rem);
+  display: none;
+  width: 11rem;
+  transform: translateY(-50%);
+  color: var(--muted);
+}
+
+@media (min-width: 1536px) {
+  .section-rail { display: block; }
+}
+
+.section-rail-label {
+  display: grid;
+  gap: 0.35rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid color-mix(in srgb, var(--rail-accent) 35%, transparent);
+}
+
+.section-rail-kicker {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.section-rail-title {
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 700;
+  animation: section-rail-enter 220ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.section-rail-list {
+  display: grid;
+  gap: 0.15rem;
+  margin-top: 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.section-rail-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.section-rail-list a span:first-child {
+  color: color-mix(in srgb, var(--rail-accent) 70%, var(--muted));
+  font-variant-numeric: tabular-nums;
+}
+
+.section-rail-list a:not(.is-active) { opacity: 0.62; }
+.section-rail-list a:hover,
+.section-rail-list a:focus-visible,
+.section-rail-list a.is-active { color: var(--foreground); opacity: 1; }
+.section-rail-list a.is-active span:first-child { font-weight: 800; }
+
+@keyframes section-rail-enter {
+  from { opacity: 0; transform: translateY(0.4rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-rail-title { animation: none; }
+  .section-rail-list a { transition: color 180ms ease, opacity 180ms ease; }
 }
 
 a:hover,
@@ -180,13 +297,14 @@ html:not(.dark) .iqbal-theme .iqbal-hero [class*="text-slate-4"] { color: var(--
 html:not(.dark) .iqbal-theme .iqbal-hero [class*="hover:text-white"]:hover { color: var(--iqbal-primary) !important; }
 html:not(.dark) .iqbal-theme [class~="text-white"] { color: var(--foreground) !important; }
 html:not(.dark) .iqbal-theme [class*="dark:text-white"] { color: var(--foreground) !important; }
-html:not(.dark) .iqbal-theme .iqbal-dark-surface,
-html:not(.dark) .iqbal-theme .iqbal-dark-surface [class~="text-white"] { color: #f0f2f5 !important; }
-html:not(.dark) .iqbal-theme .iqbal-dark-surface { background-color: #1a1f2c !important; }
-html:not(.dark) .iqbal-theme .iqbal-dark-surface [class*="dark:text-white"],
-html:not(.dark) .iqbal-theme .iqbal-dark-surface [class~="text-white"] { color: #f0f2f5 !important; }
+html:not(.dark) .iqbal-theme .iqbal-dark-surface { color: var(--foreground) !important; background-color: var(--surface) !important; border-color: var(--line) !important; }
+html:not(.dark) .iqbal-theme .iqbal-dark-surface [class~="text-white"],
+html:not(.dark) .iqbal-theme .iqbal-dark-surface [class*="dark:text-white"] { color: var(--foreground) !important; }
+html:not(.dark) .iqbal-theme .iqbal-dark-surface [class*="text-slate-300"],
+html:not(.dark) .iqbal-theme .iqbal-dark-surface [class*="text-slate-400"] { color: var(--muted) !important; }
+html:not(.dark) .iqbal-theme .iqbal-dark-surface .bg-white { background-color: var(--surface-strong) !important; color: var(--foreground) !important; }
 .iqbal-theme .iqbal-heading { color: var(--foreground) !important; }
-.iqbal-theme .iqbal-dark-surface .iqbal-heading { color: #f0f2f5 !important; }
+.iqbal-theme .iqbal-dark-surface .iqbal-heading { color: var(--foreground) !important; }
 .iqbal-theme .prose { color: var(--foreground); }
 .iqbal-theme .prose :where(h1,h2,h3,h4,strong,th) { color: var(--foreground); }
 .iqbal-theme .prose :where(a) { color: var(--iqbal-primary); }

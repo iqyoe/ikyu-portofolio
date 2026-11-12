@@ -81,6 +81,12 @@ This uses the same `RacerPortfolio` contract with the `fuchsia` identity theme a
 5. Add project metadata schema validation and a small browser smoke/visual QA workflow.
 6. Decide whether the remaining dark editorial sections should receive light variants in a later pass.
 
+## 2026-11-09 section wayfinding pass
+
+Added a shared desktop section rail to the Iqbal portfolio, Iqbal case studies, and both racer pages. The rail observes section visibility, updates its current heading with a short compositor-friendly transition, supports keyboard anchor navigation, and is hidden below the wide desktop breakpoint so mobile layouts keep their content width. Reduced-motion users retain the active-state change without movement.
+
+The Iqbal portfolio also has view-triggered reveals for its major sections and project cards. The animation uses a 260ms strong ease-out on opacity and transform, with a 50ms alternating card offset and a reduced-motion opacity-only fallback. The section rail breakpoint is 1536px so it does not compete with the hero portrait on narrower desktop widths.
+
 
 
 ## 2026-10-31 Iqbal palette update

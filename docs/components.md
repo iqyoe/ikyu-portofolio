@@ -8,6 +8,8 @@
 | Iqbal detail route | `src/app/(documentation)/iqbal-lukman/projects/[slug]/page.tsx` | Static params, slug resolution, and MDX rendering. |
 | Racer routes | `src/app/(racer)/ikyu-racer/`, `src/app/(racer)/nadya-racer/` | Identity-specific layouts and shared one-page portfolio. |
 | Header | `src/components/SiteHeader.tsx` | Home link, optional navigation, theme toggle, and tone. |
+| Section rail | `src/components/SectionRail.tsx` | Desktop section wayfinding for long portfolio and case-study pages; observes active sections and provides animated, accessible anchor navigation. |
+| Reveal | `src/components/Reveal.tsx` | View-triggered opacity and transform entrance for the Iqbal portfolio, with small card staggering and reduced-motion fallback. |
 | Project grid | `src/components/ProjectGrid.tsx` | Tag filtering, cards, images, and case-study links. |
 | Tech stack matrix | `src/components/TechStackMatrix.tsx` | Category-filtered technology pills for the Iqbal bento page. |
 | Racer portfolio | `src/components/RacerPortfolio.tsx` | Shared racer hero, stats, profile, results, media, technical, partner, and contact sections. |
