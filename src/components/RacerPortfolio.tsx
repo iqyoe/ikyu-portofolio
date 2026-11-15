@@ -1,159 +1,57 @@
-import Image from 'next/image';
-import type { CSSProperties } from 'react';
-import DriverProfileCarousel from '@/components/DriverProfileCarousel';
+'use client';
+
+import type { CSSProperties, ReactNode } from 'react';
+import { useState } from 'react';
+import ImageCrossfade from '@/components/ImageCrossfade';
 import SectionRail from '@/components/SectionRail';
+import type { DriverProfile } from '@/lib/drivers';
 
 type RacerTheme = 'orange' | 'fuchsia';
+const themeStyles = { orange: '#ff6b35', fuchsia: '#65b5ff' } as const;
 
-interface RacerPortfolioProps {
-  name: string;
-  image: string;
-  imageAlt: string;
-  theme: RacerTheme;
+export default function RacerPortfolio({ driver, theme }: { driver: DriverProfile; theme: RacerTheme }) {
+  const accent = themeStyles[theme];
+  return <main style={{ '--racer-accent': accent } as CSSProperties} className="overflow-hidden bg-[#090b10] text-white">
+    <SectionRail accent={accent} sections={[{ id: 'racer-overview', label: 'Overview' }, { id: 'about', label: 'About' }, { id: 'race-record', label: 'Race record' }, { id: 'contact', label: 'Contact' }]} />
+    <section id="racer-overview" className="relative isolate min-h-[calc(100svh-73px)] overflow-hidden scroll-mt-20">
+      <div className="absolute inset-0 -z-20"><ImageCrossfade images={driver.heroImages} alt={`${driver.displayName} racing on track`} sizes="100vw" priority className="brightness-[0.42]" /></div>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#090b10]/95 via-[#090b10]/65 to-[#090b10]/35" />
+      <div className="relative mx-auto flex min-h-[calc(100svh-73px)] max-w-6xl items-center px-6 py-24 sm:py-32">
+        <div className="pointer-events-none absolute inset-y-10 left-2 hidden items-stretch gap-3 overflow-hidden opacity-75 lg:flex" aria-hidden="true">
+          <span style={{ lineHeight: driver.slug === 'cheznaddz' ? 0.5 : 1 }} className="racer-name-rail racer-name-rail-forward text-[clamp(5rem,12vw,12rem)] font-black uppercase leading-none tracking-[-0.08em] text-white/80 [writing-mode:vertical-rl]">{driver.displayName}</span>
+          <span style={{ lineHeight: driver.slug === 'cheznaddz' ? 0.5 : 1 }} className="racer-name-rail racer-name-rail-reverse mt-24 text-[clamp(5rem,12vw,12rem)] font-black uppercase leading-none tracking-[-0.08em] text-white/25 [writing-mode:vertical-lr]">{driver.displayName}</span>
+        </div>
+        <div className="ml-auto w-full max-w-3xl lg:pr-10">
+          <p className="text-xs font-bold uppercase tracking-[0.32em] text-[var(--racer-accent)]">Karting driver · 🇮🇩 Indonesia</p>
+          <h1 className="mt-6 text-5xl font-black uppercase leading-[0.9] tracking-[-0.06em] sm:text-7xl lg:text-8xl"><span className="block">{driver.fullName ?? driver.displayName}</span>{driver.fullName ? <span className="mt-2 block text-[var(--racer-accent)]">{driver.displayName}</span> : null}</h1>
+          <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-white/85 sm:text-2xl">{driver.shortBio ?? 'Driver profile details coming soon.'}</p>
+          <button type="button" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} className="hero-scroll-cta mt-12 inline-flex items-center gap-4 text-xs font-bold uppercase tracking-[0.28em] text-white/80 transition-colors hover:text-[var(--racer-accent)]"><span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/40 text-lg text-[var(--racer-accent)]">↓</span><span>Scroll to driver overview</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" className="scroll-mt-20 border-y border-white/10 bg-[#10131a] px-6 py-24 sm:py-32"><div className="mx-auto max-w-6xl"><SectionHeading eyebrow="01 / Driver overview" title="The driver behind the lap." />
+      <div className="mt-12 grid gap-5 lg:grid-cols-12 lg:grid-rows-2">
+        <div className="relative min-h-[28rem] overflow-hidden border border-white/10 bg-black/20 lg:col-span-4 lg:row-span-2"><ImageCrossfade images={driver.profileImages} alt={`${driver.displayName} driver portrait`} sizes="(min-width: 1024px) 33vw, 100vw" priority /></div>
+        <InfoCard title="Driver bio" className="lg:col-span-8"><p className="text-base leading-7 text-slate-300">{driver.shortBio ?? 'Driver profile details coming soon.'}</p><div className="mt-7 grid grid-cols-2 gap-5 sm:grid-cols-4">{[['DOB', driver.dob ?? '—'], ['Domicile', driver.domicile ?? '—'], ['Nationality', driver.nationality ?? '—'], ['Total race', driver.totalRaces?.toString() ?? '—']].map(([label, value]) => <div key={label}><p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-slate-500">{label}</p><p className="mt-2 font-semibold text-white">{value}</p></div>)}</div></InfoCard>
+        <InfoCard title="Competition joined" className="lg:col-span-4"><p className="text-5xl font-black text-[var(--racer-accent)]">{driver.competitionsJoined ?? '—'}</p><p className="mt-2 text-sm text-slate-400">series and events</p><p className="mt-5 border-t border-white/10 pt-4 text-sm text-slate-300">Current team: {driver.currentTeam ?? 'Details coming soon.'}</p></InfoCard>
+        <InfoCard title="Latest best performance" className="lg:col-span-4"><div className="flex items-end justify-between gap-4"><p className="text-5xl font-black text-[var(--racer-accent)]">{driver.latestBest?.position ?? '—'}</p><p className="text-right text-2xl font-bold text-white">{driver.latestBest?.lapTime ?? '—'}<span className="block text-xs font-normal uppercase tracking-widest text-slate-500">lap time</span></p></div><p className="mt-5 font-semibold text-white">{driver.latestBest?.trackName ?? 'Performance details coming soon.'}</p><p className="mt-1 text-sm text-slate-400">{driver.latestBest?.trackLocation ?? ''}</p><p className="mt-4 text-xs uppercase tracking-[0.16em] text-slate-500">Updated {driver.latestBest?.lastUpdated ?? '—'}</p></InfoCard>
+      </div>
+    </div></section>
+
+    <RaceRecord driver={driver} />
+    <section id="contact" className="scroll-mt-20 bg-[#1b2d50] px-6 py-24 sm:py-32"><div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-end"><div><p className="text-xs font-bold uppercase tracking-[0.32em] text-slate-300">Let’s talk racing.</p><h2 className="mt-5 max-w-xl text-5xl font-black uppercase leading-[0.9] tracking-[-0.05em] text-white sm:text-7xl">Build the next lap.</h2></div><div className="divide-y divide-white/20 border-y border-white/20">{[['Email', `mailto:${driver.contact.email}`, driver.contact.email], ['Instagram', `https://instagram.com/${driver.contact.instagram.replace('@', '')}`, driver.contact.instagram], ['TikTok', `https://tiktok.com/@${driver.contact.tiktok.replace('@', '')}`, driver.contact.tiktok]].map(([label, href, value]) => <a key={label} href={href} className="flex items-center justify-between gap-4 py-4 text-sm transition-colors hover:text-[var(--racer-accent)]"><span className="text-xs uppercase tracking-[0.2em] text-slate-300">{label}</span><span className="font-semibold text-white">{value}</span></a>)}</div></div></section>
+    <footer className="flex flex-col gap-3 px-6 py-8 text-xs uppercase tracking-[0.16em] text-slate-500 sm:flex-row sm:items-center sm:justify-between"><span>© 2026 {driver.displayName}</span><span>Sojitoy Team · Driver profile</span></footer>
+  </main>;
 }
 
-const themeStyles = {
-  orange: {
-    accent: 'text-emerald-300',
-    accentDark: 'text-emerald-300',
-    soft: 'bg-emerald-400/10',
-    border: 'border-emerald-400/50',
-    button: 'bg-emerald-400 text-slate-950 hover:bg-pink-500 hover:text-white',
-    primary: '#00ff85',
-    primarySoft: 'rgba(0, 255, 133, 0.12)',
-    line: 'bg-emerald-400',
-  },
-  fuchsia: {
-    accent: 'text-blue-400',
-    accentDark: 'text-blue-300',
-    soft: 'bg-blue-500/10',
-    border: 'border-blue-400/50',
-    button: 'bg-blue-500 text-white hover:bg-pink-500',
-    primary: '#1e90ff',
-    primarySoft: 'rgba(30, 144, 255, 0.12)',
-    line: 'bg-blue-500',
-  },
-} as const;
-
-type ThemeStyles = (typeof themeStyles)[RacerTheme];
-
-const raceResults = [
-  ['2026', 'Sodi World Series / Regional Championship', '270cc 4-Stroke Karting', 'Add verified result'],
-  ['2026', 'Track Day & Endurance Cup', 'Open Karting Class', 'Add verified result'],
-  ['2025', 'Regional Clubman Sprint', '4-Stroke Amateur Class', 'Add verified result'],
-];
-
-export default function RacerPortfolio({ name, image, imageAlt, theme }: RacerPortfolioProps) {
-  const styles = themeStyles[theme];
-  const themeVariables = {
-    '--button-primary': styles.primary,
-    '--button-primary-soft': styles.primarySoft,
-  } as CSSProperties;
-
-  return (
-    <main style={themeVariables} className="overflow-hidden bg-[#0D0D0D] text-white">
-      <SectionRail accent={styles.primary} sections={[{ id: 'racer-overview', label: 'Overview' }, { id: 'profile', label: 'Driver profile' }, { id: 'track-record', label: 'Track record' }, { id: 'media', label: 'Media' }, { id: 'technical', label: 'Technical edge' }, { id: 'partners', label: 'Partners' }, { id: 'contact', label: 'Contact' }]} />
-      <section id="racer-overview" className="mx-auto grid min-h-[calc(100vh-73px)] scroll-mt-24 max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[30%_70%] lg:gap-0">
-        <div className="flex justify-center lg:pr-10">
-          <div className="relative w-full max-w-[20rem]">
-            <div className={`absolute inset-x-0 top-1/2 aspect-square -translate-y-1/2 rounded-full ${theme === 'orange' ? 'bg-black dark:bg-white' : 'bg-black dark:bg-white'}`} aria-hidden="true" />
-            <Image src={image} alt={imageAlt} width={373} height={theme === 'orange' ? 468 : 669} priority sizes="(min-width: 1024px) 30vw, 80vw" className="relative z-10 block h-auto w-full" />
-          </div>
-        </div>
-
-        <div className="lg:pl-8">
-          <p className={`text-sm font-semibold uppercase tracking-[0.35em] ${styles.accent}`}>{name} / Racer</p>
-          <h1 className="mt-6 max-w-4xl text-6xl font-black uppercase leading-[0.9] tracking-tight sm:text-8xl">
-            {name}<br /><span className={styles.accent}>Race with intent.</span>
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-300">
-            Amateur Karting &amp; Sprint Race Driver. Precision in the apex. Speed in the data.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4 text-sm font-semibold">
-            <a href="#contact" className={`rounded-full px-6 py-3 text-white transition ${styles.button}`}>Get in touch</a>
-            <a href="#profile" className="button-outline-primary rounded-full px-6 py-3 transition">Explore the story</a>
-          </div>
-        </div>
-      </section>
-
-      <section className={`border-y ${styles.border} ${styles.soft}`} aria-label="Driver statistics">
-        <div className="mx-auto grid max-w-6xl gap-px px-6 py-6 sm:grid-cols-3">
-          <Stat label="Current series" value="SWS / Regional" />
-          <Stat label="Career highlight" value="Results coming soon" />
-          <Stat label="Machinery" value="270cc karting" />
-        </div>
-      </section>
-
-      <section id="profile" className="mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
-        <SectionIntro eyebrow="01 / Driver profile" title="Calm hands. Clear data. Faster decisions." />
-        <div className="mt-12 grid gap-10 lg:grid-cols-[30%_70%] lg:gap-8">
-          <div className="space-y-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
-            <p>{name} is building a racing identity around disciplined progression, deliberate practice, and the search for a cleaner line through every corner.</p>
-            <p>The next chapter will document the work behind the lap: physical conditioning, simulator sessions, race preparation, and telemetry-led review.</p>
-          </div>
-          <DriverProfileCarousel theme={theme} />
-        </div>
-      </section>
-
-      <section id="track-record" className="bg-slate-900/60 px-6 py-24 scroll-mt-24">
-        <div className="mx-auto max-w-6xl">
-          <SectionIntro eyebrow="02 / Track record" title="Progress you can measure." />
-          <div className="mt-12 overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800">
-            <table className="w-full min-w-[680px] text-left text-sm">
-              <thead className="bg-slate-100 text-xs uppercase tracking-wider text-slate-500 dark:bg-slate-800 dark:text-slate-400">
-                <tr><th className="px-5 py-4">Year</th><th className="px-5 py-4">Event / Series</th><th className="px-5 py-4">Category</th><th className="px-5 py-4">Highlight</th></tr>
-              </thead>
-              <tbody>
-                {raceResults.map((row) => <tr key={`${row[0]}-${row[1]}`} className="border-t border-slate-200 dark:border-slate-800">{row.map((cell) => <td key={cell} className="px-5 py-5 text-slate-600 dark:text-slate-300">{cell}</td>)}</tr>)}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-sm text-slate-500">Official results and raw lap-time links can be added when verified sources are available.</p>
-        </div>
-      </section>
-
-      <section id="media" className="mx-auto max-w-6xl px-6 py-24 scroll-mt-24">
-        <SectionIntro eyebrow="03 / Media" title="Bring the paddock to the page." />
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {['On-track action', 'Pit-lane preparation', 'Helmet & livery'].map((label) => (
-            <div key={label} className={`relative aspect-[4/3] overflow-hidden rounded-2xl border ${styles.border} ${styles.soft}`}>
-              <Image src={image} alt={`${name} ${label.toLowerCase()}`} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-contain p-5" />
-              <span className="absolute bottom-4 left-4 rounded-full bg-slate-950/75 px-3 py-1 text-xs font-semibold text-white">{label}</span>
-            </div>
-          ))}
-        </div>
-        <div className={`mt-8 flex min-h-40 items-center justify-center rounded-2xl border border-dashed ${styles.border} ${styles.soft} p-8 text-center text-sm text-slate-500 dark:text-slate-300`}>
-          Featured video / onboard telemetry embed slot
-        </div>
-      </section>
-
-      <section id="technical" className={`border-y ${styles.border} ${styles.soft} scroll-mt-24`}>
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 lg:grid-cols-2">
-          <div><SectionIntro eyebrow="04 / Technical edge" title="The lap is the output. The process is the advantage." /><p className="mt-6 max-w-xl leading-7 text-slate-600 dark:text-slate-300">Use this section to show lap-timer analysis, sector breakdowns, telemetry review, and data-driven line optimization alongside the physical work required to stay consistent.</p></div>
-          <div className="grid gap-4 sm:grid-cols-2"><Feature title="Telemetry" text="Sector analysis and line optimization" styles={styles} /><Feature title="Conditioning" text="Cardio, core, and neck-strength routine" styles={styles} /><Feature title="Simulation" text="Repeatable practice between race days" styles={styles} /><Feature title="Race review" text="Structured debrief after every session" styles={styles} /></div>
-        </div>
-      </section>
-
-      <section id="partners" className="mx-auto max-w-6xl px-6 py-24 scroll-mt-24">
-        <SectionIntro eyebrow="05 / Partners" title="Build the next campaign together." />
-        <div className="mt-12 grid gap-5 lg:grid-cols-3"><Feature title="Brand exposure" text="Helmet, suit, kart, and trackside placement." styles={styles} /><Feature title="Digital reach" text="Vlogs, track walkthroughs, and livery reveals." styles={styles} /><Feature title="Guest experience" text="Paddock access and track-day engagement." styles={styles} /></div>
-        <div className={`mt-8 rounded-2xl border p-8 ${styles.border} ${styles.soft}`}><p className={`text-xs font-semibold uppercase tracking-[0.25em] ${styles.accent}`}>Sponsorship deck</p><p className="mt-3 text-lg font-semibold">Formal sponsorship proposal coming soon.</p><p className="mt-2 text-sm text-slate-600 dark:text-slate-300">A downloadable deck can be linked here when the campaign package is ready.</p></div>
-      </section>
-
-      <section id="contact" className="bg-[#0D0D0D] px-6 py-24 text-white">
-        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <div><SectionIntro eyebrow="06 / Contact" title="Let’s talk about the next lap." light /><p className="mt-6 text-slate-300">For sponsorships, engineering conversations, race invitations, and collaborations, use the inquiry form.</p></div>
-          <form className="grid gap-4 sm:grid-cols-2" action="#contact"><input aria-label="Name" name="name" placeholder="Name" className="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-white sm:col-span-1" /><input aria-label="Company or sponsor" name="company" placeholder="Company / Sponsor" className="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-white sm:col-span-1" /><input aria-label="Email" type="email" name="email" placeholder="Email" className="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-white sm:col-span-2" /><textarea aria-label="Message" name="message" placeholder="Message" rows={5} className="rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-white sm:col-span-2" /><button type="submit" className={`rounded-full px-6 py-3 text-sm font-semibold text-white transition sm:col-span-2 sm:justify-self-start ${styles.button}`}>Send inquiry</button></form>
-        </div>
-      </section>
-    </main>
-  );
+function RaceRecord({ driver }: { driver: DriverProfile }) {
+  const [category, setCategory] = useState<'SWS' | 'Other'>('SWS');
+  const years = [2026, 2025];
+  return <section id="race-record" className="scroll-mt-20 px-6 py-24 sm:py-32"><div className="mx-auto max-w-5xl"><SectionHeading eyebrow="02 / Race record" title="Every race leaves a mark." /><div className="mt-10 flex gap-2" role="tablist" aria-label="Race record category"><CategoryButton category="SWS" selected={category === 'SWS'} onClick={() => setCategory('SWS')} /><CategoryButton category="Other" selected={category === 'Other'} onClick={() => setCategory('Other')} /></div><div className="mt-12 space-y-12">{years.map((year) => { const yearRows = driver.raceRecords.filter((record) => record.category === category && record.year === year); return <div key={year}><h3 className="mb-5 text-3xl font-black tracking-tight text-white">{year}</h3><div className="relative border-l border-white/20 pl-7">{yearRows.length ? yearRows.map((row) => <article key={`${row.event}-${row.date}-${row.result}`} className="relative pb-8 last:pb-0"><span className="absolute -left-[2.02rem] top-1 h-3 w-3 rounded-full bg-[var(--racer-accent)] ring-4 ring-[#090b10]" /><p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">{row.date}</p><div className="mt-2 border border-white/10 bg-[#10131a] p-5 sm:p-6"><div className="flex min-w-0 flex-row items-start justify-between gap-3 sm:gap-5"><div className="min-w-0 flex-1"><h4 className="truncate text-base font-bold text-white sm:text-lg">{row.event}</h4><p className="mt-1 truncate text-sm text-slate-400">{row.series}</p><p className="mt-4 text-sm text-slate-300">{row.track}</p></div><RaceResultDetails result={row.result} /></div></div></article>) : <p className="py-2 text-sm text-slate-500">No recorded results in {category} for {year}.</p>}</div></div>; })}</div></div></section>;
 }
 
-function SectionIntro({ eyebrow, title, light = false }: { eyebrow: string; title: string; light?: boolean }) {
-  return <div><p className={`text-sm font-semibold uppercase tracking-[0.3em] ${light ? 'text-slate-400' : 'text-slate-500'}`}>{eyebrow}</p><h2 className={`mt-4 max-w-3xl text-3xl font-black tracking-tight sm:text-5xl ${light ? 'text-white' : 'text-slate-950 dark:text-white'}`}>{title}</h2></div>;
-}
-
-function Stat({ label, value }: { label: string; value: string }) { return <div className="px-4 py-3 text-center sm:text-left"><p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{label}</p><p className="mt-2 font-bold text-slate-900 dark:text-white">{value}</p></div>; }
-
-function Feature({ title, text, styles }: { title: string; text: string; styles: ThemeStyles }) { return <div className={`rounded-2xl border p-6 ${styles.border}`}><div className={`mb-5 h-2 w-10 rounded-full ${styles.line}`} /><h3 className="font-bold text-slate-900 dark:text-white">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{text}</p></div>; }
+function CategoryButton({ category, selected, onClick }: { category: 'SWS' | 'Other'; selected: boolean; onClick: () => void }) { return <button type="button" role="tab" aria-selected={selected} onClick={onClick} className={`rounded-full border px-5 py-2 text-sm font-bold transition-colors ${selected ? 'border-[var(--racer-accent)] bg-[var(--racer-accent)] text-black' : 'border-white/20 text-slate-400 hover:border-white/50'}`}>{category}</button>; }
+function RaceResultDetails({ result }: { result: string }) { const details = result.split(' · ').map((part) => { const match = part.match(/^(Qualifying|Grid|Reverse(?: Grid)?)\s+(P\d+)/i); return match ? { label: match[1].replace(/^Reverse$/i, 'Reverse Grid'), position: match[2].toUpperCase() } : { label: 'Result', position: part.match(/P\d+/i)?.[0]?.toUpperCase() ?? part }; }); return <div className="flex min-w-0 shrink-0 flex-nowrap gap-2">{details.map((detail) => <div key={`${detail.label}-${detail.position}`} className="min-w-[4.25rem] border border-white/10 bg-white/[0.03] px-2 py-2 text-right sm:min-w-[4.75rem]"><p className="text-[0.58rem] font-bold uppercase tracking-[0.16em] text-slate-500">{detail.label}</p><p className="mt-1 text-lg font-black text-[var(--racer-accent)]">{detail.position}</p></div>)}</div>; }
+function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) { return <div><p className="text-xs font-bold uppercase tracking-[0.32em] text-[var(--racer-accent)]">{eyebrow}</p><h2 className="mt-4 max-w-3xl text-4xl font-black uppercase leading-[0.95] tracking-[-0.04em] text-white sm:text-6xl">{title}</h2></div>; }
+function InfoCard({ title, children, className = '' }: { title: string; children: ReactNode; className?: string }) { return <article className={`border border-white/10 bg-[#151922] p-6 sm:p-8 ${className}`}><p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-500">{title}</p><div className="mt-5">{children}</div></article>; }

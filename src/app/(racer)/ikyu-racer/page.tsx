@@ -1,4 +1,5 @@
 import RacerPortfolio from '@/components/RacerPortfolio';
+import { ikyuDriver } from '@/lib/drivers';
 
 export const metadata = {
   title: 'IKYU',
@@ -6,5 +7,5 @@ export const metadata = {
 };
 
 export default function IkyuRacerPage() {
-  return <RacerPortfolio name="IKYU" image="/image/profile-racer-ikyu.png" imageAlt="Male racer wearing a racing helmet and suit" theme="orange" />;
+  return <RacerPortfolio driver={ikyuDriver} theme="orange" />;
 }

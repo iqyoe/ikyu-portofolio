@@ -1,4 +1,5 @@
 import RacerPortfolio from '@/components/RacerPortfolio';
+import { cheznaddzDriver } from '@/lib/drivers';
 
 export const metadata = {
   title: 'CHEZNADDZ',
@@ -6,6 +7,6 @@ export const metadata = {
 };
 
 export default function NadyaRacerPage() {
-  return <RacerPortfolio name="CHEZNADDZ" image="/image/profile-racer-cheznaddz.png" imageAlt="CHEZNADDZ racer portrait" theme="fuchsia" />;
+  return <RacerPortfolio driver={cheznaddzDriver} theme="fuchsia" />;
 }
 

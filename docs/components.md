@@ -12,8 +12,8 @@
 | Reveal | `src/components/Reveal.tsx` | View-triggered opacity and transform entrance for the Iqbal portfolio, with small card staggering and reduced-motion fallback. |
 | Project grid | `src/components/ProjectGrid.tsx` | Tag filtering, cards, images, and case-study links. |
 | Tech stack matrix | `src/components/TechStackMatrix.tsx` | Category-filtered technology pills for the Iqbal bento page. |
-| Racer portfolio | `src/components/RacerPortfolio.tsx` | Shared racer hero, stats, profile, results, media, technical, partner, and contact sections. |
-| Racer carousels | `src/components/DriverProfileCarousel.tsx`, `src/components/MachineryCarousel.tsx` | Racer profile and machinery visuals. |
+| Racer portfolio | `src/components/RacerPortfolio.tsx` | Shared racer hero, bento driver overview, year-filtered race record, and contact band. |
+| Racer media | `src/components/ImageCrossfade.tsx` | Crossfades hero and driver profile image sets with a reduced-motion fallback. |
 | Theme provider | `src/components/theme-provider.tsx` | Provides the dark-default light/dark theme context. |
 | Content visuals | `src/components/SkillsMarquee.tsx`, `Timeline.tsx`, `Mermaid.tsx` | Skills, timeline, and interactive MDX diagram rendering. Mermaid diagrams preserve a readable natural size and support zoom, reset, mouse-wheel zoom, drag-to-pan, and an expanded view. |
 | Resume generation | `src/lib/resume.ts`, `src/lib/resume-pdf.tsx`, `src/app/api/resume/route.ts`, `src/app/(documentation)/iqbal-lukman/resume/page.tsx` | Normalizes content, previews the inline PDF, renders the downloadable PDF through a Node.js Route Handler, and generates a header QR code from the shared portfolio URL. |
@@ -25,5 +25,5 @@ The root layout provides theme context and the shared header exposes the theme t
 
 ## Content ownership
 
-Racer copy remains component-local. Iqbal profile, timeline, skills, education, project summaries, and case studies are repository content under `content/iqbal-lukman/`; the website and PDF derive their shared resume fields from that boundary.
+Racer profile data is centralized in `src/lib/drivers.ts`, where each route selects a typed driver record and local media paths. Iqbal profile, timeline, skills, education, project summaries, and case studies are repository content under `content/iqbal-lukman/`; the website and PDF derive their shared resume fields from that boundary.
 
