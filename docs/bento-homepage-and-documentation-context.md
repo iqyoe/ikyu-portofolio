@@ -23,12 +23,12 @@ Bento composition comes from the grid relationship between these jobs. It is not
 The root page is a bento portal. It renders:
 
 1. `SiteHeader` with the “Sojitoy Team” label and theme toggle.
-2. A short brand introduction.
+2. A compact Sojitoy Team identity hero with a direct jump to the portfolio list.
 3. An Iqbal focal card from the local `portfolios` array.
 4. Two supporting racer cards.
-5. A full-width QR generator utility card.
+5. A separate portal utility section with two product-style tool cards for the QR generator and resume preview.
 
-The current grid uses twelve columns at medium widths. Iqbal occupies seven columns and two rows as the focal card; IKYU and CHEZNADDZ occupy the right-side supporting cells; the QR utility spans the bottom. On small screens the cells stack naturally. Images, alt text, routes, and the `portfolios` data array remain local to `src/app/page.tsx`.
+The current grid uses twelve columns at medium widths. Iqbal occupies seven columns and two rows as the focal card; IKYU and CHEZNADDZ occupy the right-side supporting cells. On small screens the cells stack naturally. The open hero uses roughly 65% of the viewport height as a visual stage: the fully opaque, widely spaced single-line title is centered from its own midpoint and lifted above the centered transparent hero logo, while the larger bold subtitle sits on a flat asphalt strip behind the logo with a short extension and two full-width yellow lane lines separated by asphalt. The complete CTA label carries the single looping scroll cue, and the browser uses smooth scrolling with a reduced-motion fallback. The logo also has a slow, low-amplitude race jiggle with a reduced-motion fallback. A separate two-column utility section keeps the QR generator and resume preview as focused product-style cards. Images, alt text, routes, and the `portfolios` data array remain local to `src/app/page.tsx`.
 ## Iqbal portfolio (`src/app/(documentation)/iqbal-lukman/page.tsx`)
 
 This is the site’s actual bento-style page:
