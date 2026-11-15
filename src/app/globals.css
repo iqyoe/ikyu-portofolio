@@ -209,11 +209,15 @@ html:not(.dark) .qr-page .border-slate-700 { border-color: var(--line) !importan
 .section-rail-list a.is-active span:first-child { font-weight: 800; }
 
 .racer-name-rail {
+  display: block;
+  align-self: flex-start;
+  flex: 0 0 auto;
+  height: max-content;
+  white-space: nowrap;
   text-orientation: upright;
-  animation-duration: 12s;
-  animation-timing-function: ease-in-out;
+  animation-duration: 8s;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
   will-change: transform;
 }
 
@@ -228,13 +232,13 @@ html:not(.dark) .qr-page .border-slate-700 { border-color: var(--line) !importan
 }
 
 @keyframes racer-name-rail-forward {
-  from { transform: translate3d(0, -3.5rem, 0); }
-  to { transform: translate3d(0, 3.5rem, 0); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, -50%, 0); }
 }
 
 @keyframes racer-name-rail-reverse {
-  from { transform: translate3d(0, 3.5rem, 0); }
-  to { transform: translate3d(0, -3.5rem, 0); }
+  from { transform: translate3d(0, -50%, 0); }
+  to { transform: translate3d(0, 0, 0); }
 }
 
 @keyframes section-rail-enter {

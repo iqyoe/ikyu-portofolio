@@ -1,7 +1,7 @@
 export type RaceRecord = {
   category: 'SWS' | 'Other';
   event: string;
-  result: string;
+  result?: string;
   series: string;
   track: string;
   date: string;
@@ -22,7 +22,7 @@ export type DriverProfile = {
   heroImages: string[];
   profileImages: string[];
   recentResults: string[];
-  latestBest?: { trackName: string; trackLocation: string; lapTime: string; position: string; lastUpdated: string };
+  latestBest?: { trackName: string; trackLocation: string; lapTime: string; position?: string; lastUpdated: string };
   raceRecords: RaceRecord[];
   contact: { email: string; instagram: string; tiktok: string };
 };
@@ -44,4 +44,22 @@ export const ikyuDriver: DriverProfile = {
   heroImages: ikyuHeroImages, profileImages: ['/image/racer/ikyu-profile-01.jpg', '/image/racer/ikyu-profile-02.jpg'], recentResults: ['P6 · Main Kart SakerF1Club', 'P1 · Main Kart SakerF1Club', 'P7 · SWS Senior Sprint Cup 18'], latestBest: { trackName: 'National Track · Reverse', trackLocation: 'Gokart Avenue · Indonesia', lapTime: '25.821', position: 'P6', lastUpdated: 'Nov 2026' }, raceRecords: ikyuRaceRecords, contact: { email: 'muhiqballukman@gmail.com', instagram: '@ikyoala', tiktok: '@ikyudesu' },
 };
 
-export const cheznaddzDriver: DriverProfile = { ...ikyuDriver, slug: 'cheznaddz', displayName: 'CHEZNADDZ', fullName: 'Nadya Nikita Manorek', dob: '26 Nov 1997', domicile: 'Jakarta', nationality: 'Indonesia', totalRaces: 5, currentTeam: 'Individual · Sojitoy', shortBio: undefined, competitionsJoined: 3, latestBest: undefined, profileImages: ['/image/racer/cheznaddz-profile-01.jpg', '/image/racer/cheznaddz-profile-02.jpeg'] };
+const cheznaddzHeroImages = ['/image/racer/cheznaddz-hero-01.jpeg', '/image/racer/cheznaddz-hero-02.jpeg', '/image/racer/cheznaddz-hero-03.jpeg', '/image/racer/cheznaddz-hero-04.jpeg'];
+
+const cheznaddzRaceRecords: RaceRecord[] = [
+  { category: 'Other', year: 2026, event: 'Main Kart SakerF1Club 5', series: 'Fun Race Event', track: 'National Reverse - Gokart Avenue', date: '9 Nov 2026' },
+  { category: 'SWS', year: 2026, event: 'SWS Women Series 4', series: 'Sprint Cup SWS', track: 'National Reverse - Gokart Avenue', date: 'October 2026' },
+  { category: 'Other', year: 2026, event: 'Main Kart SakerF1Club 4', series: 'Fun Race Event', track: 'National Track - Gokart Avenue', date: 'September 2026' },
+  { category: 'Other', year: 2026, event: 'Main Kart SakerF1Club 3', series: 'Fun Race Event', track: 'Twister Track - Gokart Avenue', date: 'August 2026' },
+  { category: 'SWS', year: 2026, event: 'SWS Women Series 2', series: 'Sprint Cup SWS', track: 'Twister Track - Gokart Avenue', date: 'August 2026' },
+];
+
+export const cheznaddzDriver: DriverProfile = {
+  ...ikyuDriver,
+  slug: 'cheznaddz', displayName: 'CHEZNADDZ', fullName: 'Nadya Nikita Manorek', dob: '26 Nov 1997', domicile: 'Jakarta', nationality: 'Indonesia',
+  totalRaces: 5, currentTeam: 'Individual · Sojitoy', shortBio: undefined, competitionsJoined: 2,
+  heroImages: cheznaddzHeroImages, recentResults: ['Main Kart SakerF1Club 5', 'SWS Women Series 4', 'Main Kart SakerF1Club 4'],
+  latestBest: { trackName: 'National Track - Gokart Avenue', trackLocation: '', lapTime: '26.574', position: 'P3', lastUpdated: '23 October 2026' },
+  raceRecords: cheznaddzRaceRecords, profileImages: ['/image/racer/cheznaddz-profile-01.jpg', '/image/racer/cheznaddz-profile-02.jpeg'],
+  contact: { email: 'nadya31manorek@gmail.com', instagram: '@ndyanikita', tiktok: '@nmine18 - cheznaddz' },
+};
