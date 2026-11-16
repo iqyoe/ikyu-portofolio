@@ -363,8 +363,8 @@ html:not(.dark) .iqbal-theme .iqbal-dark-surface .bg-white { background-color: v
 }
 
 @keyframes brand-hero-title-in {
-  from { opacity: 0; transform: translateY(-50%) scale(0.96); }
-  to { opacity: 1; transform: translateY(-50%) scale(1); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes brand-hero-logo-in {
@@ -385,7 +385,7 @@ html:not(.dark) .iqbal-theme .iqbal-dark-surface .bg-white { background-color: v
   to { opacity: 0; transform: translateX(2rem) scaleX(1); }
 }
 
-.brand-hero-title { top: calc(50% - 0.45em); animation: brand-hero-title-in 700ms cubic-bezier(0.23, 1, 0.32, 1) both; word-spacing: 0.48em; }
+.brand-hero-title { top: calc(50% - 0.45em); width: 100%; animation: brand-hero-title-in 700ms cubic-bezier(0.23, 1, 0.32, 1) both; word-spacing: 0.48em; }
 .brand-hero-copy { animation: brand-hero-copy-in 650ms 450ms cubic-bezier(0.23, 1, 0.32, 1) both; }
 .brand-hero-description { animation: brand-hero-copy-in 600ms 520ms cubic-bezier(0.23, 1, 0.32, 1) both; }
 .brand-hero-mark { animation: brand-hero-logo-in 850ms 120ms cubic-bezier(0.23, 1, 0.32, 1) both; }
@@ -397,23 +397,35 @@ html:not(.dark) .iqbal-theme .iqbal-dark-surface .bg-white { background-color: v
 }
 
 .brand-hero-road {
-  width: min(100%, 48rem);
+  width: 130vw;
+  min-height: 10rem;
   overflow: hidden;
   border: 1px solid #3f3f3f;
   border-radius: 0;
   background: #292929;
-  padding: 1rem 1.25rem 0;
+  padding: 1.75rem 1.25rem 0;
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 6%), 0 10px 24px rgb(0 0 0 / 18%);
 }
 
 .brand-hero-description {
+  width: min(90vw, 36rem);
   color: #fff;
+  font-size: clamp(0.95rem, 4vw, 1.25rem);
+  line-height: 1.5;
+}
+
+@media (max-width: 639px) {
+  .brand-hero-title {
+    font-size: clamp(3rem, 16vw, 10.5rem);
+    letter-spacing: -0.07em;
+  }
 }
 
 .brand-hero-road-extension {
   position: relative;
-  height: 1.55rem;
-  margin: 1rem -1.25rem 0;
+  width: 100vw;
+  height: 2.5rem;
+  margin: 1.25rem -1.25rem 0;
   border-top: 1px solid #3f3f3f;
   background: #292929;
 }

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import SiteHeader from '@/components/SiteHeader';
+import HomeHero from '@/components/HomeHero';
 
 const portfolios = [
   {
@@ -52,25 +53,9 @@ const portalTools = [
 export default function HomePage() {
   return (
     <>
-      <SiteHeader label="Sojitoy Team" homeHref="/" />
+      <SiteHeader label="SOJI TEAM" homeHref="/" />
       <main className="mx-auto max-w-6xl px-5 py-10 sm:px-8 sm:py-16">
-        <section className="brand-hero relative flex min-h-[65vh] flex-col items-center justify-end overflow-visible py-10 sm:py-12" aria-labelledby="brand-hero-title">
-          <h1 id="brand-hero-title" className="brand-hero-title pointer-events-none absolute left-1/2 top-1/2 z-0 w-max max-w-none -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-center font-display text-[clamp(2rem,11vw,10.5rem)] font-black leading-none tracking-[-0.08em] text-[var(--foreground)]" aria-label="Sojitoy Team">SOJITOY TEAM</h1>
-          <div className="brand-hero-visual pointer-events-none absolute inset-0 z-10 flex -translate-y-8 items-center justify-center sm:-translate-y-10" aria-hidden="true">
-            <span className="brand-hero-speedline brand-hero-speedline-one" />
-            <span className="brand-hero-speedline brand-hero-speedline-two" />
-            <div className="brand-hero-race relative">
-              <Image src="/image/sojitoy-team-hero.png" alt="" width={396} height={297} priority className="brand-hero-mark relative h-auto w-[min(75vw,36rem)] object-contain" />
-            </div>
-          </div>
-          <div className="brand-hero-road pointer-events-none absolute bottom-24 left-1/2 z-[5] w-[min(100%,48rem)] -translate-x-1/2 translate-y-[5vh] sm:bottom-28">
-            <p className="brand-hero-description max-w-xl text-lg font-bold leading-7 text-white sm:text-xl">A disciplined team combining technology and racing to create impactful products and champion performance.</p>
-            <div className="brand-hero-road-extension" aria-hidden="true"><span /><span /></div>
-          </div>
-          <div className="brand-hero-copy relative z-20 mb-1 flex translate-y-[5vh] max-w-2xl flex-col items-center text-center sm:mb-2 sm:translate-y-[5vh]">
-            <Link href="#portfolios" className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[var(--accent-blue)] px-5 py-3 text-sm font-bold text-white transition-[background-color,transform] duration-200 ease-out hover:bg-[var(--accent-blue)]/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-blue)] active:scale-[0.98]"><span className="brand-hero-cta-content">Browse portfolios <span className="brand-hero-cta-arrow ml-2" aria-hidden="true">↓</span></span></Link>
-          </div>
-        </section>
+        <HomeHero />
 
         <section id="portfolios" className="mt-12 grid scroll-mt-24 gap-4 md:grid-cols-12 md:auto-rows-[minmax(15rem,auto)]" aria-label="Available portfolios">
           <Link href={portfolios[0].href} className="brand-card group relative min-h-[30rem] overflow-hidden rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-7 shadow-sm transition-[border-color,box-shadow,transform] duration-300 ease-out active:scale-[0.99] hover:-translate-y-1 hover:border-[var(--accent-blue)] hover:shadow-xl hover:shadow-slate-900/10 md:col-span-6 md:row-span-2 sm:p-10">

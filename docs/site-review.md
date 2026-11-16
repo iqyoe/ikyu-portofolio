@@ -12,13 +12,13 @@ The ThemeForest reference is [Bentofolio – Minimal Tailwind CSS Personal Portf
 
 ### `/` — portfolio hub
 
-**Implementation:** `src/app/page.tsx` renders `SiteHeader`, an open Sojitoy Team identity hero sized to roughly 65% of the viewport, three portfolio links, and a separate portal utility section for the QR generator and resume preview. The hero centers the supplied transparent hero logo in front of a fully opaque, widely spaced single-line title whose own midpoint controls alignment, then places the concise description and portfolio CTA at the bottom; theme-specific subtitle shadows improve contrast and the CTA label provides the single scroll cue with smooth scrolling. The cards use profile images from `public/image/` and route to the Iqbal, Ikyu, and Nadya experiences.
+**Implementation:** `src/app/page.tsx` renders `SiteHeader`, an open SOJI TEAM identity hero sized to roughly 65% of the viewport, three portfolio links, and a separate portal utility section for the QR generator and resume preview. The hero centers the supplied transparent hero logo in front of a fully opaque, widely spaced single-line title whose own midpoint controls alignment, then places the concise description and portfolio CTA at the bottom; theme-specific subtitle shadows improve contrast and the CTA label provides the single scroll cue with smooth scrolling. The cards use profile images from `public/image/` and route to the Iqbal, Ikyu, and Nadya experiences.
 
 **What works:** clear entry points, meaningful alt text, a useful utility callout, responsive grid classes, and a simple information hierarchy. The open hero is visually distinct from the navigation cards, with one primary “Browse portfolios” action, a high-contrast asphalt road subtitle panel, one clear scroll cue carried by the CTA label, and reduced-motion-safe scale-in, fade-in, float, and race jiggle motion.
 
 **Resolved in this pass:** the homepage now uses a 12-column bento grid. Iqbal is the dominant two-row card, the two racer identities occupy supporting cells, and the utility actions sit in a separate two-card product-style row. The shared header includes a dark/light toggle, with dark as the default.
 
-**Content gap:** the root brand says “Sojitoy Team”, while the portfolio identity and reference language are otherwise centered on Ikyu/Iqbal/Nadya. Confirm whether “Sojitoy Team” is the permanent public brand before a visual redesign.
+**Content gap:** the root brand says “SOJI TEAM”, while the portfolio identity and reference language are otherwise centered on Ikyu/Iqbal/Nadya.
 
 ### `/iqbal-lukman` — documentation portfolio
 
@@ -34,7 +34,7 @@ The ThemeForest reference is [Bentofolio – Minimal Tailwind CSS Personal Portf
 
 **What works:** the JSON/MDX split is easy to edit, slugs are stable, missing documents become a 404, images are optional, and diagrams can be authored in a case study without changing React code.
 
-**Risks:** the page title falls back to the global `Sojitoy Team` title because the detail route does not export per-project metadata; the loader intentionally accepts unvalidated JSON; and Mermaid uses the documented permissive `securityLevel: 'loose'` setting. Keep MDX authoring trusted and run the content validation after metadata changes.
+**Risks:** the page title falls back to the global `SOJI TEAM` title because the detail route does not export per-project metadata; the loader intentionally accepts unvalidated JSON; and Mermaid uses the documented permissive `securityLevel: 'loose'` setting. Keep MDX authoring trusted and run the content validation after metadata changes.
 
 ### `/iqbal-lukman/resume` and `/api/resume` — resume documentation/export
 

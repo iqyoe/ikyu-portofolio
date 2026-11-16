@@ -59,7 +59,7 @@ export const cheznaddzDriver: DriverProfile = {
   slug: 'cheznaddz', displayName: 'CHEZNADDZ', fullName: 'Nadya Nikita Manorek', dob: '26 Nov 1997', domicile: 'Jakarta', nationality: 'Indonesia',
   totalRaces: 5, currentTeam: 'Individual · Sojitoy', shortBio: undefined, competitionsJoined: 2,
   heroImages: cheznaddzHeroImages, recentResults: ['Main Kart SakerF1Club 5', 'SWS Women Series 4', 'Main Kart SakerF1Club 4'],
-  latestBest: { trackName: 'National Track - Gokart Avenue', trackLocation: '', lapTime: '26.574', position: 'P3', lastUpdated: '23 October 2026' },
+  latestBest: { trackName: 'National Track - Gokart Avenue', trackLocation: '', lapTime: '26.574', position: '-', lastUpdated: '23 October 2026' },
   raceRecords: cheznaddzRaceRecords, profileImages: ['/image/racer/cheznaddz-profile-01.jpg', '/image/racer/cheznaddz-profile-02.jpeg'],
   contact: { email: 'nadya31manorek@gmail.com', instagram: '@ndyanikita', tiktok: '@nmine18 - cheznaddz' },
 };

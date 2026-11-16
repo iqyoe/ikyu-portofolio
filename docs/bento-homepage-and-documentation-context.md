@@ -22,8 +22,8 @@ Bento composition comes from the grid relationship between these jobs. It is not
 
 The root page is a bento portal. It renders:
 
-1. `SiteHeader` with the “Sojitoy Team” label and theme toggle.
-2. A compact Sojitoy Team identity hero with a direct jump to the portfolio list.
+1. `SiteHeader` with the “SOJI TEAM” label and theme toggle.
+2. A compact SOJI TEAM identity hero with a direct jump to the portfolio list.
 3. An Iqbal focal card from the local `portfolios` array.
 4. Two supporting racer cards.
 5. A separate portal utility section with two product-style tool cards for the QR generator and resume preview.
