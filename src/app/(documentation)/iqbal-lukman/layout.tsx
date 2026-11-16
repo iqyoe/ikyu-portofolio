@@ -7,6 +7,7 @@ export default function IqbalLayout({ children }: { children: ReactNode }) {
       <SiteHeader
         label="Iqbal Lukman"
         homeHref="/"
+        showBackArrow
         links={[{ href: '/iqbal-lukman', label: 'Portfolio' }]}
       />
       {children}

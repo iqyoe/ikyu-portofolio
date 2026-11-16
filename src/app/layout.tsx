@@ -4,8 +4,8 @@ import ThemeProvider from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: {
-    default: "Sojitoy Team",
-    template: "%s | Sojitoy Team",
+    default: "SOJI TEAM",
+    template: "%s | SOJI TEAM",
   },
   description: "Explore our team members’ portfolios and find the right expertise for your next challenge.",
 };
